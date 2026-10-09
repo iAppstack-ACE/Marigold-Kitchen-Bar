@@ -347,6 +347,123 @@ a{color:var(--accent)}
 }
 @media (prefers-reduced-motion:reduce){.it,.cartbar{animation:none}}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+/* ===== admin ===== */
+:root{--s-new:#e0a93a;--s-prep:#4f8ff0;--s-ready:#46b36a;--s-served:#9a7fe0;--s-paid:#7d8f8a;--s-bad:#e0554a;--c1:var(--accent);--c2:#4fb89c;--c3:#6a8cf0;--c4:#d36fa0;--c5:#e08a4a;--c6:#9a7fe0}
+.closedbar{margin:12px 16px 0;padding:11px 14px;border-radius:14px;border:1px solid rgba(224,85,74,.45);background:rgba(224,85,74,.12);font-size:13px;font-weight:700;text-align:center}
+.tag.soldout{background:rgba(224,85,74,.15);color:var(--bad);border-color:rgba(224,85,74,.4)}
+.it.out{opacity:.55}.tick.bad{background:var(--bad);color:#fff}
+body.adm-open{overflow:hidden}
+.admbtn{position:fixed;left:14px;bottom:14px;z-index:20;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--glass);color:var(--muted);border-radius:999px;padding:8px 13px;font-size:12px;font-weight:700;backdrop-filter:blur(10px)}
+.admbtn svg.i{width:15px;height:15px}
+#adm{position:fixed;inset:0;z-index:50;background:var(--bg);color:var(--fg);display:grid;overflow:hidden}
+#adm[hidden],#admApp[hidden],#admGate[hidden],#admModal[hidden]{display:none}
+#admGate{place-self:center;width:min(380px,calc(100% - 32px));display:grid;gap:14px;padding:26px;border-radius:22px;background:var(--surface);border:1px solid var(--line);text-align:center}
+#admGate h2{margin:0;font-family:var(--display)}#admGate input{text-align:center;font-size:22px;letter-spacing:.4em}
+input,select,textarea{font:inherit;color:var(--fg);background:var(--glass-2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;width:100%;min-width:0}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+select option{color:#000}
+.err{color:var(--bad);font-size:13px;margin:0}.muted{color:var(--muted)}
+#admApp{display:grid;grid-template-columns:230px 1fr;height:100dvh}
+.aside{display:flex;flex-direction:column;gap:6px;padding:18px 12px;border-right:1px solid var(--line);background:var(--surface)}
+.aside .logo2{display:flex;align-items:center;gap:10px;padding:4px 8px 14px;font-family:var(--display);font-weight:700}
+.navb{position:relative;display:flex;align-items:center;gap:11px;border:0;background:none;color:var(--muted);padding:11px 12px;border-radius:12px;font-weight:600;text-align:left}
+.navb svg.i{width:19px;height:19px}.navb:hover{background:var(--glass-2)}
+.navb[aria-current="true"]{background:rgba(var(--acc-rgb),.14);color:var(--accent)}
+.nbdg{margin-left:auto;background:var(--bad);color:#fff;border-radius:999px;font-size:11px;padding:1px 7px;font-weight:700}
+.aside .sp{flex:1}
+.amain{display:flex;flex-direction:column;min-width:0;height:100dvh}
+.atop{display:flex;align-items:center;gap:10px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.atop h1{margin:0;font-family:var(--display);font-size:22px;flex:1}
+#admView{flex:1;overflow:auto;padding:22px;-webkit-overflow-scrolling:touch}
+.btn2{border:1px solid var(--line);background:var(--glass-2);color:var(--fg);border-radius:12px;padding:11px 16px;font-weight:600;display:inline-flex;gap:7px;align-items:center;justify-content:center}
+.btn2.danger,.btn.danger2{color:var(--bad);border-color:rgba(224,85,74,.45)}.btn.danger2{background:var(--bad);color:#fff;border:0}
+.btn svg.i,.btn2 svg.i{width:16px;height:16px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;margin-top:6px}
+.cardx{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0}.cardx.flush{padding:0;overflow:hidden}
+.chd{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.chd h3{margin:0;font-size:15px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:4px}
+.kpi b{font-family:var(--display);font-size:28px}.kpi em{font-size:15px;color:var(--muted);font-style:normal}.kpi small{color:var(--muted);font-size:12px}
+.dl{font-size:12px;font-weight:700;color:var(--muted)}.dl.up{color:var(--ok)}.dl.dn{color:var(--bad)}
+.dgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.span12{grid-column:span 12}.span8{grid-column:span 8}.span6{grid-column:span 6}.span4{grid-column:span 4}
+.chart{display:grid;grid-template-columns:44px 1fr;grid-template-rows:200px auto;gap:6px}
+.yax{position:relative}.yax span{position:absolute;right:0;transform:translateY(50%);font-size:11px;color:var(--muted)}
+.plot{position:relative;border-bottom:1px solid var(--line)}.grid i{position:absolute;left:0;right:0;border-top:1px dashed var(--line)}
+.bars{position:absolute;inset:0;display:flex;gap:10px;align-items:flex-end;padding:0 8px}
+.bars .col{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}
+.bar{width:100%;max-width:46px;background:var(--c3);border-radius:6px 6px 0 0;min-height:2px}.col.today .bar{background:var(--accent)}
+.bv{font-size:10px;color:var(--muted)}.xax{display:flex;gap:10px;padding:0 8px}.xax span{flex:1;text-align:center;font-size:11px;color:var(--muted)}
+.queue{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.qb{border:1px solid var(--line);background:var(--glass-2);border-radius:14px;padding:12px 6px;color:var(--fg);display:grid;gap:2px;text-align:center}
+.qb b{font-size:24px;color:var(--sc)}.qb span{font-size:11px;color:var(--muted)}
+.srow{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}.srow>span{flex:1;display:grid}.srow small{color:var(--muted)}.srow svg.i{width:18px;height:18px;color:var(--accent)}
+.hrow{display:grid;grid-template-columns:minmax(80px,1fr) 1.2fr auto;gap:10px;align-items:center;padding:6px 0;font-size:14px}
+.hbar{height:8px;background:var(--glass-2);border-radius:99px;overflow:hidden}.hbar i{display:block;height:100%;border-radius:99px}
+.hn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stack{display:flex;height:14px;border-radius:99px;overflow:hidden;gap:2px;margin-bottom:12px}
+.lg{display:grid;grid-template-columns:12px 1fr auto auto;gap:8px;align-items:center;padding:4px 0;font-size:13px}.lg i{width:10px;height:10px;border-radius:3px}.lg small{color:var(--muted);width:34px;text-align:right}
+.orow{display:grid;grid-template-columns:1.1fr 1.6fr .8fr auto;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--line);cursor:pointer}
+.orow:first-child{border-top:0}.orow:hover{background:var(--glass-2)}
+.o1,.o3{display:grid}.o1 span,.o3 span{font-size:12px;color:var(--muted)}.o2{font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}.o4{display:flex;gap:8px;align-items:center;justify-content:flex-end}
+.pill{display:inline-block;border-radius:99px;padding:3px 10px;font-size:12px;font-weight:700;color:var(--sc);background:color-mix(in srgb,var(--sc) 16%,transparent);border:1px solid color-mix(in srgb,var(--sc) 40%,transparent);white-space:nowrap}
+.mini{border:1px solid var(--line);background:var(--glass-2);color:var(--fg);border-radius:10px;padding:6px 11px;font-size:12px;font-weight:700;display:inline-flex;gap:5px;align-items:center}
+.mini.go{background:var(--accent);color:var(--accent-ink);border:0}.mini svg.i{width:14px;height:14px}
+.toolbar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}.toolbar select{width:auto}
+.srch{position:relative;flex:1;min-width:180px}.srch svg.i{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted)}.srch input{padding-left:36px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:12px;overflow:hidden}.seg button{border:0;background:none;color:var(--muted);padding:9px 14px;font-weight:600}.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.tabs2{display:flex;gap:8px;overflow:auto;margin-bottom:14px;padding-bottom:2px}.tabs2 button{border:1px solid var(--line);background:var(--glass-2);color:var(--fg);border-radius:99px;padding:7px 13px;font-size:13px;white-space:nowrap;display:inline-flex;gap:7px}
+.tabs2 button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:rgba(var(--acc-rgb),.12)}.tabs2 em{font-style:normal;opacity:.7}
+.mhead,.mrow{display:grid;grid-template-columns:2.4fr 1.2fr .7fr .8fr 56px 84px;gap:12px;align-items:center;padding:11px 16px}
+.mhead{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:1px solid var(--line)}
+.mrow{border-top:1px solid var(--line)}.mrow.off .m1,.mrow.off .m2,.mrow.off .m3{opacity:.5}
+.m1{display:flex;gap:11px;align-items:center;min-width:0}.m1>div{display:grid;min-width:0}.m1 b,.m1 small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.m1 small,.m2{color:var(--muted);font-size:13px}
+.m4{display:flex;gap:8px;align-items:center}.m5{display:flex;gap:6px;justify-content:flex-end}
+.tile.sm{width:40px;height:40px;border-radius:11px;flex:none}.tile.sm svg.i{width:20px;height:20px}
+.vdot{width:12px;height:12px;border-radius:3px;border:2px solid var(--veg);position:relative;flex:none}.vdot::after{content:"";position:absolute;inset:2px;border-radius:50%;background:var(--veg)}.vdot.nv{border-color:var(--nonveg)}.vdot.nv::after{background:var(--nonveg)}
+.ib{width:34px;height:34px;border-radius:10px;border:1px solid var(--line);background:var(--glass-2);color:var(--fg);display:grid;place-items:center}.ib svg.i{width:16px;height:16px}.ib.dn{color:var(--bad)}.ib:disabled{opacity:.3}
+.ibx{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--glass-2);color:var(--fg);display:grid;place-items:center}.ibx[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:rgba(var(--acc-rgb),.12)}
+.tg{width:44px;height:26px;border-radius:99px;border:0;background:var(--glass-2);box-shadow:inset 0 0 0 1px var(--line);position:relative;flex:none;transition:.2s}
+.tg::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--muted);transition:.2s}
+.tg[aria-pressed="true"]{background:var(--accent);box-shadow:none}.tg[aria-pressed="true"]::after{left:21px;background:var(--accent-ink)}
+.crow2{display:flex;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--line)}.crow2:first-child{border-top:0}.crow2.off .cn{opacity:.5}
+.cn{flex:1;display:grid;min-width:0}.cn small{color:var(--muted)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:8px}
+.th{display:flex;justify-content:space-between;align-items:center}.th b{font-family:var(--display);font-size:30px}.tv{font-size:13px;min-height:20px}.tact{display:flex;gap:6px;flex-wrap:wrap}
+.sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;align-items:start}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fgrid4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0}
+.fl{display:grid;gap:6px}.fl.full{grid-column:1/-1}
+.hrow2{display:flex;gap:10px;align-items:center;padding:7px 0}.hrow2>span:first-child{width:46px;font-weight:700}.hrow2 input{width:auto}
+.swrow{display:flex;align-items:center;justify-content:space-between;gap:14px}.swrow>div{display:grid}
+.chipsr{display:flex;gap:8px;flex-wrap:wrap}
+#admModal{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.62);display:grid;place-items:center;padding:16px}
+#admSheet{width:min(560px,100%);max-height:calc(100dvh - 32px);overflow:auto;border-radius:22px;padding:22px;display:grid;gap:14px;background:var(--surface);border:1px solid var(--line);align-content:start}
+#admSheet h3{margin:0;display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:18px}
+.meta2{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}.meta2 b{color:var(--fg)}
+.stp{display:flex;gap:6px;flex-wrap:wrap}.sbtn{border:1px solid var(--line);background:var(--glass-2);color:var(--fg);border-radius:99px;padding:6px 12px;font-size:12px}.sbtn[aria-pressed="true"]{background:var(--sc);color:#fff;border-color:var(--sc)}
+.tl{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:6px}.tl li{display:flex;gap:10px;align-items:center;font-size:13px}.tl i{width:9px;height:9px;border-radius:50%}.tl small{margin-left:auto;color:var(--muted)}
+.qrbox{background:#fff;border-radius:16px;padding:16px;width:min(240px,100%);margin:0 auto}.qrbox svg{display:block;width:100%;height:auto}
+.linkbox{background:var(--glass-2);border-radius:10px;padding:10px;word-break:break-all;font-size:12px}
+.empty{padding:28px;text-align:center;color:var(--muted);margin:0}
+.ban.prev{min-height:110px;border-radius:14px;margin-top:8px}.ban.prev h2{font-size:22px}
+#admToast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;z-index:70}
+#admToast[hidden]{display:none}
+.admtabs{display:none}
+@media(max-width:960px){
+  #admApp{grid-template-columns:1fr;grid-template-rows:1fr auto}
+  .aside{order:2;flex-direction:row;border-right:0;border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px));gap:2px;justify-content:space-around}
+  .aside .logo2,.aside .sp,.aside .navb span{display:none}.aside .sp{display:none}
+  .navb{padding:10px 12px;justify-content:center}.nbdg{position:absolute;top:2px;right:2px;margin:0}
+  .amain{height:auto;min-height:0;overflow:hidden}#admApp{height:100dvh}
+  #admView{padding:14px}.atop{padding:12px 14px}
+  .kpis{grid-template-columns:repeat(2,1fr)}.span8,.span6,.span4{grid-column:span 12}.sgrid{grid-template-columns:1fr}
+  .orow{grid-template-columns:1fr auto;grid-template-areas:"a c" "b b" "d d"}.o1{grid-area:a}.o3{grid-area:c;text-align:right}.o2{grid-area:b}.o4{grid-area:d;justify-content:space-between}
+  .mhead{display:none}.mrow{grid-template-columns:1fr auto auto;grid-template-areas:"a b c" "d e f"}.mrow .m1{grid-area:a}.mrow .m3{grid-area:b}.mrow .tg{grid-area:c}.mrow .m2{grid-area:d}.mrow .m4{grid-area:e}.mrow .m5{grid-area:f}
+  #admModal{align-items:end;padding:0}#admSheet{border-radius:22px 22px 0 0;max-height:92dvh;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+  .fgrid{grid-template-columns:1fr}.fgrid4{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){.admbtn{bottom:auto;top:12px;left:12px;padding:7px 10px}.admbtn span{display:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -372,25 +489,26 @@ a{color:var(--accent)}
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.3 0 2-.8 2-1.8 0-.5-.3-1-.6-1.4-.3-.4-.4-.8-.4-1.2 0-1 .8-1.6 1.8-1.6H17a4 4 0 0 0 4-4c0-4-4-8-9-8z"/><path d="M7.5 11v.01M10 7.5v.01M14.5 7.5v.01"/></symbol>
-  </defs>
+  <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol><symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/></symbol><symbol id="i-qr" viewBox="0 0 24 24"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2h-2zM18 14h2v2M14 18h2v2M18 18h2v2"/></symbol><symbol id="i-gear" viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM19 12l2-1.5-2-3.5-2.3.8-1.7-1-.4-2.3h-4l-.4 2.3-1.7 1-2.3-.8-2 3.5L5 12l-.1 1.5-1.9 1.5 2 3.5 2.3-.8 1.7 1 .4 2.3h4l.4-2.3 1.7-1 2.3.8 2-3.5-2-1.5z"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM16 16l4.5 4.5"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13 7l4 4"/></symbol><symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13M10 11v6M14 11v6"/></symbol><symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol><symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h11v12H8zM5 16V4h11"/></symbol><symbol id="i-logout" viewBox="0 0 24 24"><path d="M10 4H5v16h5M15 8l4 4-4 4M19 12H9"/></symbol></defs>
 </svg>
 
+<button class="admbtn" id="admB" type="button" aria-label="Admin"><svg class="i"><use href="#i-gear"/></svg><span data-i="adminBtn"></span></button>
 <div id="home">
   <div class="stage">
     <aside class="card glass left" aria-label="Restaurant details">
-      <div class="logo"><div class="ring" aria-hidden="true">M</div><b>MARIGOLD</b><span data-i="sub"></span></div>
+      <div class="logo"><div class="ring" aria-hidden="true" data-s="ini"></div><b data-s="name"></b><span data-s="sub"></span></div>
       <div class="sep"></div>
       <div class="blk"><span class="label" data-i="today"></span><strong id="dayname"></strong><div class="hrs" id="todayh"></div><div class="status"><i class="dot" id="dot"></i><span id="open"></span></div></div>
       <div class="sep"></div>
-      <div class="blk"><span class="label" data-i="addrL"></span><span style="font-size:13px" data-i="addr"></span>
-        <a class="chipbtn" href="https://maps.google.com" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg><span data-i="map"></span></a></div>
+      <div class="blk"><span class="label" data-i="addrL"></span><span style="font-size:13px" data-s="addr"></span>
+        <a class="chipbtn" data-sh="map" href="#" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg><span data-i="map"></span></a></div>
       <div class="sep"></div>
-      <div class="chipbtn" style="width:100%"><svg class="i"><use href="#i-phone"/></svg><span>+91 00000 00000</span></div>
+      <div class="chipbtn" style="width:100%"><svg class="i"><use href="#i-phone"/></svg><span data-s="phone"></span></div>
       <div class="sep"></div>
       <div class="socials">
-        <a class="sb" href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#i-insta"/></svg></a>
-        <a class="sb" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i"><use href="#i-fb"/></svg></a>
-        <a class="sb" href="https://maps.google.com" target="_blank" rel="noopener" aria-label="Google Maps"><svg class="i"><use href="#i-pin"/></svg></a>
+        <a class="sb" data-sh="ig" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#i-insta"/></svg></a>
+        <a class="sb" data-sh="fb" href="#" target="_blank" rel="noopener" aria-label="Facebook"><svg class="i"><use href="#i-fb"/></svg></a>
+        <a class="sb" data-sh="map" href="#" target="_blank" rel="noopener" aria-label="Google Maps"><svg class="i"><use href="#i-pin"/></svg></a>
       </div>
     </aside>
 
@@ -398,16 +516,17 @@ a{color:var(--accent)}
       <main class="panel" id="panel">
         <!-- To use your own photo or video: replace this canvas with an <img> or <video> that fills the panel -->
         <div class="scene"><canvas id="scene" aria-hidden="true"></canvas></div>
-        <div class="mbrand"><div class="ring sm" aria-hidden="true">M</div><div><b>MARIGOLD</b><span><i class="dot" id="dot2"></i><span id="open2"></span></span></div></div>
+        <div class="mbrand"><div class="ring sm" aria-hidden="true" data-s="ini"></div><div><b data-s="name"></b><span><i class="dot" id="dot2"></i><span id="open2"></span></span></div></div>
         <div class="cap"><h1 data-i="tag"></h1><p data-i="tagSub"></p></div>
       </main>
 
       <section class="mpanel" id="mpanel" aria-label="Menu">
         <div class="mh">
-          <div class="ring sm" aria-hidden="true">M</div>
+          <div class="ring sm" aria-hidden="true" data-s="ini"></div>
           <div class="nm">MARIGOLD<small data-i="sub"></small></div>
           <button class="hb m" id="svcB2" type="button" aria-label="Service"><svg class="i"><use href="#i-bell"/></svg></button>
           <button class="hb m" id="infoB2" type="button" aria-label="Info"><svg class="i"><use href="#i-info"/></svg></button>
+          <button class="hb m" id="admB2" type="button" aria-label="Admin"><svg class="i"><use href="#i-gear"/></svg></button>
           <button class="hb m" id="langB2" type="button" aria-label="Language"></button>
           <button class="hb" id="back" type="button"><svg class="i"><use href="#i-back"/></svg><span data-i="back"></span></button>
         </div>
@@ -455,11 +574,11 @@ a{color:var(--accent)}
     <h3 id="infoH"><span data-i="info"></span><button class="x" id="closeInfo" aria-label="Close"><svg class="i" style="width:16px;height:16px"><use href="#i-x"/></svg></button></h3>
     <div class="blk"><span class="label" data-i="hoursT"></span><div id="hours"></div></div>
     <div class="sep"></div>
-    <div class="blk"><span class="label" data-i="addrL"></span><span style="font-size:14px" data-i="addr"></span><span class="muted">+91 00000 00000</span></div>
+    <div class="blk"><span class="label" data-i="addrL"></span><span style="font-size:14px" data-s="addr"></span><span class="muted" data-s="phone"></span></div>
     <div class="sep"></div>
     <div class="blk"><span class="label">Wi-Fi</span>
-      <div class="row"><span data-i="net"></span><span>Marigold Guest</span></div>
-      <div class="row"><span data-i="pass"></span><span><span id="pw">marigold123</span><button class="copy" id="copy" type="button" data-i="copy"></button></span></div></div>
+      <div class="row"><span data-i="net"></span><span data-s="wifi"></span></div>
+      <div class="row"><span data-i="pass"></span><span><span id="pw" data-s="wpass"></span><button class="copy" id="copy" type="button" data-i="copy"></button></span></div></div>
     <div class="sep"></div>
     <div class="blk"><span class="label" data-i="themeT"></span><div class="sws" id="palInfo"></div></div>
     <div class="sep"></div>
@@ -475,8 +594,22 @@ a{color:var(--accent)}
 </div>
 <div class="toast" id="toast" hidden></div>
 
-<script>
-const T={
+
+<div id="adm" hidden>
+  <div id="admGate" hidden><form id="pinForm" autocomplete="off" style="display:grid;gap:14px"><div class="ring" aria-hidden="true" style="margin:0 auto" data-s="ini"></div><h2><span data-i="gate"></span></h2><p class="muted" id="pinHint" style="margin:0"></p>
+    <input id="pin" inputmode="numeric" maxlength="6" type="password" aria-label="PIN" autocomplete="off"><p class="err" id="pinErr" hidden></p>
+    <button class="btn big" type="submit" data-i="enter"></button><button class="btn2" type="button" data-act="exit" data-i="backSite"></button></form></div>
+  <div id="admApp" hidden>
+    <nav class="aside" id="admNavWrap"><div class="logo2"><div class="ring sm" aria-hidden="true" data-s="ini"></div><span data-s="name"></span></div><div id="admNav" style="display:contents"></div><span class="sp"></span>
+      <button class="navb" type="button" data-act="exit"><svg class="i"><use href="#i-back"/></svg><span data-i="backSite"></span></button>
+      <button class="navb" type="button" data-act="signout"><svg class="i"><use href="#i-logout"/></svg><span data-i="signOut"></span></button></nav>
+    <div class="amain"><header class="atop"><h1 id="admTitle"></h1><button class="mini" type="button" data-act="exit"><svg class="i"><use href="#i-back"/></svg><span data-i="backSite"></span></button></header><div id="admView"></div></div>
+  </div>
+  <div id="admModal" hidden><div id="admSheet" role="dialog" aria-modal="true"></div></div>
+  <div id="admToast" hidden></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>const T={
  en:{sub:"Kitchen & Bar",addTo:"Add to order",updOrder:"Update order",nutT:"Nutritional values",perPortion:"per portion",calL:"Calories",fatL:"Fat",carbL:"Carbs",protL:"Protein",prepL:"Preparation time",minL:"min",alT:"Allergens",noAl:"No common allergens",simT:"Similar dishes",sample:"Sample values for this demo. Replace them with your own.",a_gluten:"Gluten",a_dairy:"Milk & dairy",a_nuts:"Tree nuts",a_eggs:"Eggs",a_fish:"Fish",a_shell:"Shellfish",add:"Add",viewOrder:"View order",yourOrder:"Your order",orderEmpty:"Your order is empty. Add a few dishes from the menu.",tableNo:"Table number",kitchenNote:"Note for the kitchen (optional)",payT:"Payment",payTable:"Pay at table",payUpi:"UPI",payCard:"Card",subtotal:"Subtotal",gst:"GST 5% (included)",total:"Total",place:"Place order",placed:"Order placed",orderNo:"Order",steps:["Received","Preparing","Ready","Served"],demoOrder:"Demo only. No payment is taken and nothing is sent to a kitchen.",orderMore:"Order more",themeT:"Colour theme",demoThemes:"Demo themes",back:"Back",results:"Search results",vegL:"Vegetarian",nvL:"Non-veg",tag:"Fresh from the tandoor",tagSub:"Wood-fired Indian kitchen, open all day.",today:"Today",addrL:"Address",
   addr:"Your restaurant address goes here, Street, City, PIN",map:"Open in Maps",info:"Info",menuL:"MENU",
   ask:"Search or ask Marigold…",search:"Search dishes",chefT:"Ask the chef",chefDef:"Not sure what to order? Pick a mood.",hoursT:"Opening hours",
@@ -502,24 +635,59 @@ const T={
   msg:{pick:"Şefimiz bugün bunları öneriyor.",jain:"Soğan, sarımsak ve kök sebze içermez.",veg:"Tüm vejetaryen yemekler.",light:"Hafif tabaklar ve içecekler.",sweet:"Tatlıya yer bırakın.",spicy:"Acı sevenler için."},
   kw:{pick:["öneri","şef","en iyi"],jain:["jain"],veg:["vegan","vejetaryen","vejeteryan"],light:["hafif"],sweet:["tatlı","tatli"],spicy:["acı","acılı","aci"]},lng:"EN"}
 };
-const CATS=[
+const TA={
+en:{sForce:"Close ordering now",sForceHint:"Demo switch: hides Add buttons and blocks orders on the customer side, whatever the hours say.",orderClosed:"Ordering is closed right now. You can still browse the menu.",gate:"Manager access",enter:"Enter",backSite:"Back to site",signOut:"Sign out",newOrderToast:"New order received",menuC:"Menu",closedL:"Closed",closedToday:"Closed today",soldOut:"Sold out",cancelledT:"Order cancelled",cancelledMsg:"This order was cancelled. Please speak to a member of staff.",emptyMenu:"The menu is being updated. Please check back soon.",emptyCat:"No dishes in this category yet.",
+ adminBtn:"Admin panel",
+ /* nav */
+ n_dash:"Dashboard",n_orders:"Orders",n_menu:"Menu items",n_cats:"Categories",n_tables:"Tables & QR",n_settings:"Settings",viewMenu:"View menu",signOut:"Sign out",
+ /* gate */
+ gateT:"Admin sign in",pinL:"PIN",pinHint:"Demo PIN: ",signIn:"Sign in",wrongPin:"Wrong PIN. Try again.",
+ /* dashboard */
+ kRev:"Revenue today",kOrd:"Orders today",kAvg:"Average order",kTab:"Occupied tables",vsY:"vs same time yesterday",rev7:"Revenue, last 7 days",pipe:"Kitchen queue",top5:"Top dishes, 7 days",share:"Sales by category, 7 days",recent:"Recent orders",svcReq:"Service requests",noReq:"No pending requests.",noOrders:"No orders yet.",sold:"sold",viewAll:"View all",sampleData:"Includes sample history so the charts have something to show.",noSales:"No sales in this period.",
+ /* orders */
+ f_all:"All",st_new:"New",st_preparing:"Preparing",st_ready:"Ready",st_served:"Served",st_paid:"Paid",st_cancelled:"Cancelled",rngToday:"Today",rng7:"7 days",rngAll:"All time",searchOrd:"Search order or table",tableL:"Table",
+ nx_new:"Start preparing",nx_preparing:"Mark ready",nx_ready:"Mark served",nx_served:"Mark paid",cancelOrd:"Cancel order",noteL:"Kitchen note",payL:"Payment",timeline:"Timeline",noMatch:"Nothing matches these filters.",sampleTag:"sample",confirmCancel:"Cancel this order? This cannot be undone.",keepOrd:"Keep order",yesCancel:"Yes, cancel",setStatus:"Set status",orderDetail:"Order",pay_table:"Pay at table",pay_upi:"UPI",pay_card:"Card",now:"now",minAgo:"min ago",
+ /* menu items */
+ addDish:"Add dish",allCats:"All categories",editDish:"Edit dish",newDish:"New dish",nameEn:"Name (English)",nameTr:"Name (Turkish)",descEn:"Description (English)",descTr:"Description (Turkish)",priceL:"Price (₹)",catL:"Category",dietL:"Diet",tagsL:"Labels",availL:"Available to order",nutOpt:"Nutrition per portion (optional)",nutHint:"Leave these empty to show sample values on the dish page.",prepOpt:"Preparation time (min)",alMode:"Choose allergens by hand",alAuto:"Allergens are detected from the dish name and description.",save:"Save",cancelB:"Cancel",saved:"Saved",reqName:"Enter an English name.",reqPrice:"Enter a price above 0.",reqCat:"Create a category first.",delDishQ:"Delete this dish? This cannot be undone.",delYes:"Yes, delete",edit:"Edit",del:"Delete",dishes:"dishes",tag_chef:"Chef pick",tag_jain:"Jain",tag_spicy:"Spicy",tag_light:"Light",tag_sweet:"Sweet",colDish:"Dish",colCat:"Category",colPrice:"Price",colAvail:"Available",nutNum:"Enter whole numbers for all four nutrition values, or leave them all empty.",
+ /* categories */
+ addCat:"Add category",editCat:"Edit category",newCat:"New category",subEn:"Subtitle (English)",subTr:"Subtitle (Turkish)",iconL:"Icon",shadeL:"Banner shade",visibleL:"Visible on the menu",moveUp:"Move up",moveDown:"Move down",catHasItems:"This category still has dishes. Move or delete them first.",delCatQ:"Delete this category?",hiddenL:"Hidden",reqCatName:"Enter an English name.",moveTo:"Move dishes to",
+ /* tables */
+ addTable:"Add table",editTable:"Edit table",seats:"seats",seatsL:"Seats",stFree:"Free",stOcc:"Occupied",stCall:"Needs service",qrBtn:"QR code",closeTable:"Close table",resolve:"Resolve",qrT:"Table QR code",qrNote:"Guests scan this to open the menu with their table number already filled in.",copyLink:"Copy link",linkCopied:"Link copied",qrSetUrl:"Add your public menu link in Settings so this QR opens your live site.",qrFail:"The QR library could not load. Use the link below.",delTable:"Remove table",tableBusy:"This table has open orders. Close it first.",openTotal:"open",reqTable:"Enter a table number that is not already used.",tableDelQ:"Remove this table?",callFrom:"Service call",
+ /* settings */
+ sRest:"Restaurant",sName:"Name",sSub:"Subtitle",sAddr:"Address",sPhone:"Phone",sIg:"Instagram link",sFb:"Facebook link",sMap:"Google Maps link",sHome:"Home page text",sTagEn:"Headline (English)",sTagTr:"Headline (Turkish)",sTagSubEn:"Line under it (English)",sTagSubTr:"Line under it (Turkish)",sHours:"Opening hours",sOpen:"Opens",sClose:"Closes",sWifi:"Wi-Fi",sWifiName:"Network name",sWifiPass:"Password",sBill:"Billing",sGst:"GST included in prices (%)",sUrl:"Public menu link (used for table QR codes)",sTheme:"Colour theme",sSec:"Security",sPin:"Admin PIN (4 to 6 digits)",sDemo:"Demo data",sAuto:"Move new customer orders along automatically",sAutoHint:"Lets a client watch an order go from Received to Served on their own. Orders you change by hand stop moving by themselves.",sReset:"Reset demo data",sResetQ:"Reset everything to the sample restaurant? Your changes will be lost.",sResetYes:"Yes, reset",sCopy:"Copy data (JSON)",sCopied:"Data copied",pinBad:"The PIN must be 4 to 6 digits.",autosave:"Changes save automatically.",nextDay:"next day"},
+tr:{sForce:"Siparişi şimdi kapat",sForceHint:"Demo anahtarı: çalışma saatlerinden bağımsız olarak müşteri tarafında Ekle düğmelerini gizler ve siparişi engeller.",orderClosed:"Sipariş şu an kapalı. Menüye göz atmaya devam edebilirsiniz.",gate:"Yönetici girişi",enter:"Giriş",backSite:"Siteye dön",signOut:"Çıkış",newOrderToast:"Yeni sipariş geldi",menuC:"Menü",closedL:"Kapalı",closedToday:"Bugün kapalı",soldOut:"Tükendi",cancelledT:"Sipariş iptal edildi",cancelledMsg:"Bu sipariş iptal edildi. Lütfen personelle görüşün.",emptyMenu:"Menü güncelleniyor. Lütfen biraz sonra tekrar bakın.",emptyCat:"Bu kategoride henüz yemek yok.",
+ adminBtn:"Yönetim paneli",
+ n_dash:"Panel",n_orders:"Siparişler",n_menu:"Menü ürünleri",n_cats:"Kategoriler",n_tables:"Masalar & QR",n_settings:"Ayarlar",viewMenu:"Menüyü gör",signOut:"Çıkış yap",
+ gateT:"Yönetici girişi",pinL:"PIN",pinHint:"Demo PIN: ",signIn:"Giriş yap",wrongPin:"Yanlış PIN. Tekrar deneyin.",
+ kRev:"Bugünkü ciro",kOrd:"Bugünkü sipariş",kAvg:"Ortalama sipariş",kTab:"Dolu masalar",vsY:"dün aynı saate göre",rev7:"Son 7 gün ciro",pipe:"Mutfak sırası",top5:"En çok satanlar, 7 gün",share:"Kategoriye göre satış, 7 gün",recent:"Son siparişler",svcReq:"Servis istekleri",noReq:"Bekleyen istek yok.",noOrders:"Henüz sipariş yok.",sold:"satıldı",viewAll:"Tümünü gör",sampleData:"Grafikler boş kalmasın diye örnek geçmiş içerir.",noSales:"Bu dönemde satış yok.",
+ f_all:"Tümü",st_new:"Yeni",st_preparing:"Hazırlanıyor",st_ready:"Hazır",st_served:"Servis edildi",st_paid:"Ödendi",st_cancelled:"İptal",rngToday:"Bugün",rng7:"7 gün",rngAll:"Tüm zamanlar",searchOrd:"Sipariş veya masa ara",tableL:"Masa",
+ nx_new:"Hazırlamaya başla",nx_preparing:"Hazır işaretle",nx_ready:"Servis edildi işaretle",nx_served:"Ödendi işaretle",cancelOrd:"Siparişi iptal et",noteL:"Mutfak notu",payL:"Ödeme",timeline:"Zaman çizelgesi",noMatch:"Bu filtrelere uyan kayıt yok.",sampleTag:"örnek",confirmCancel:"Bu sipariş iptal edilsin mi? Geri alınamaz.",keepOrd:"Siparişi koru",yesCancel:"Evet, iptal et",setStatus:"Durumu ayarla",orderDetail:"Sipariş",pay_table:"Masada öde",pay_upi:"UPI",pay_card:"Kart",now:"şimdi",minAgo:"dk önce",
+ addDish:"Yemek ekle",allCats:"Tüm kategoriler",editDish:"Yemeği düzenle",newDish:"Yeni yemek",nameEn:"Ad (İngilizce)",nameTr:"Ad (Türkçe)",descEn:"Açıklama (İngilizce)",descTr:"Açıklama (Türkçe)",priceL:"Fiyat (₹)",catL:"Kategori",dietL:"Beslenme",tagsL:"Etiketler",availL:"Sipariş verilebilir",nutOpt:"Porsiyon başına besin değerleri (isteğe bağlı)",nutHint:"Boş bırakırsanız yemek sayfasında örnek değerler gösterilir.",prepOpt:"Hazırlık süresi (dk)",alMode:"Alerjenleri elle seç",alAuto:"Alerjenler yemeğin adı ve açıklamasından algılanır.",save:"Kaydet",cancelB:"Vazgeç",saved:"Kaydedildi",reqName:"İngilizce bir ad girin.",reqPrice:"0'dan büyük bir fiyat girin.",reqCat:"Önce bir kategori oluşturun.",delDishQ:"Bu yemek silinsin mi? Geri alınamaz.",delYes:"Evet, sil",edit:"Düzenle",del:"Sil",dishes:"yemek",tag_chef:"Şefin seçimi",tag_jain:"Jain",tag_spicy:"Acılı",tag_light:"Hafif",tag_sweet:"Tatlı",colDish:"Yemek",colCat:"Kategori",colPrice:"Fiyat",colAvail:"Satışta",nutNum:"Dört besin değerinin hepsini tam sayı girin ya da hepsini boş bırakın.",
+ addCat:"Kategori ekle",editCat:"Kategoriyi düzenle",newCat:"Yeni kategori",subEn:"Alt başlık (İngilizce)",subTr:"Alt başlık (Türkçe)",iconL:"Simge",shadeL:"Banner tonu",visibleL:"Menüde görünür",moveUp:"Yukarı taşı",moveDown:"Aşağı taşı",catHasItems:"Bu kategoride hâlâ yemekler var. Önce taşıyın veya silin.",delCatQ:"Bu kategori silinsin mi?",hiddenL:"Gizli",reqCatName:"İngilizce bir ad girin.",moveTo:"Yemekleri şuraya taşı",
+ addTable:"Masa ekle",editTable:"Masayı düzenle",seats:"kişilik",seatsL:"Kişi sayısı",stFree:"Boş",stOcc:"Dolu",stCall:"Servis bekliyor",qrBtn:"QR kod",closeTable:"Masayı kapat",resolve:"Çözüldü",qrT:"Masa QR kodu",qrNote:"Misafirler bunu okutarak menüyü masa numarası dolu olarak açar.",copyLink:"Bağlantıyı kopyala",linkCopied:"Bağlantı kopyalandı",qrSetUrl:"Bu QR'ın canlı sitenize gitmesi için Ayarlar'a herkese açık menü bağlantınızı ekleyin.",qrFail:"QR kitaplığı yüklenemedi. Aşağıdaki bağlantıyı kullanın.",delTable:"Masayı kaldır",tableBusy:"Bu masada açık sipariş var. Önce kapatın.",openTotal:"açık",reqTable:"Daha önce kullanılmamış bir masa numarası girin.",tableDelQ:"Bu masa kaldırılsın mı?",callFrom:"Servis çağrısı",
+ sRest:"Restoran",sName:"Ad",sSub:"Alt başlık",sAddr:"Adres",sPhone:"Telefon",sIg:"Instagram bağlantısı",sFb:"Facebook bağlantısı",sMap:"Google Haritalar bağlantısı",sHome:"Ana sayfa metni",sTagEn:"Başlık (İngilizce)",sTagTr:"Başlık (Türkçe)",sTagSubEn:"Altındaki satır (İngilizce)",sTagSubTr:"Altındaki satır (Türkçe)",sHours:"Çalışma saatleri",sOpen:"Açılış",sClose:"Kapanış",sWifi:"Wi-Fi",sWifiName:"Ağ adı",sWifiPass:"Şifre",sBill:"Faturalama",sGst:"Fiyatlara dahil GST (%)",sUrl:"Herkese açık menü bağlantısı (masa QR kodları için)",sTheme:"Renk teması",sSec:"Güvenlik",sPin:"Yönetici PIN (4-6 hane)",sDemo:"Demo verileri",sAuto:"Yeni müşteri siparişlerini otomatik ilerlet",sAutoHint:"Müşterinin bir siparişin Alındı'dan Servis edildi'ye kendiliğinden ilerlediğini görmesini sağlar. Elle değiştirdiğiniz siparişler kendiliğinden ilerlemez.",sReset:"Demo verilerini sıfırla",sResetQ:"Her şey örnek restorana sıfırlansın mı? Yaptığınız değişiklikler kaybolur.",sResetYes:"Evet, sıfırla",sCopy:"Verileri kopyala (JSON)",sCopied:"Veriler kopyalandı",pinBad:"PIN 4-6 haneli olmalı.",autosave:"Değişiklikler otomatik kaydedilir.",nextDay:"ertesi gün"}
+};
+
+Object.assign(T.en,TA.en);Object.assign(T.tr,TA.tr);
+
+/* =====================  DATA LAYER  ===================== */
+const KEY="mk-demo-v2",DAY=864e5;
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+const fmt=h=>{h=((h%24)+24)%24;let H=Math.floor(h),m=Math.round((h-H)*60);if(m===60){H=(H+1)%24;m=0}return pad(H)+":"+pad(m)};
+const money=n=>"₹"+Math.round(n).toLocaleString("en-IN");
+const clone=o=>JSON.parse(JSON.stringify(o));
+const $=s=>document.querySelector(s);
+const $$=s=>[...document.querySelectorAll(s)];
+
+const SEED_CATS=[
  {id:"starters",icon:"cloche",hr:0,en:"Starters",tr:"Başlangıçlar",sub:{en:"Small plates from the tandoor to begin with.",tr:"Tandırdan küçük tabaklarla başlayın."}},
  {id:"mains",icon:"pot",hr:-16,en:"Mains",tr:"Ana Yemekler",sub:{en:"Slow-cooked curries and house specials.",tr:"Yavaş pişen körüler ve evin özel yemekleri."}},
  {id:"breads",icon:"wheat",hr:14,en:"Breads & Rice",tr:"Ekmek & Pilav",sub:{en:"Fresh from the clay oven, with fragrant rice.",tr:"Taş fırından taze, kokulu pilavlarla."}},
  {id:"desserts",icon:"cake",hr:30,en:"Desserts",tr:"Tatlılar",sub:{en:"Sweet endings, made in-house.",tr:"Evde yapılan tatlı finaller."}},
  {id:"drinks",icon:"cup",hr:-30,en:"Drinks",tr:"İçecekler",sub:{en:"Cooling classics and good coffee.",tr:"Serinleten klasikler ve iyi kahve."}},
  {id:"mocktails",icon:"glass",hr:44,en:"Mocktails",tr:"Alkolsüz Kokteyller",sub:{en:"Alcohol-free, made to order.",tr:"Alkolsüz, siparişe özel."}}];
-const GROUPS=[
- {id:"food",first:"starters",cats:["starters","mains","breads"],en:"Food",tr:"Yemekler",icon:"cloche"},
- {id:"sweets",first:"desserts",cats:["desserts"],en:"Desserts",tr:"Tatlılar",icon:"cake"},
- {id:"bev",first:"drinks",cats:["drinks"],en:"Beverages",tr:"İçecekler",icon:"cup"},
- {id:"moc",first:"mocktails",cats:["mocktails"],en:"Mocktails",tr:"Alkolsüz Kokteyller",icon:"glass"}];
-const PALS=[
- {id:"emerald",n:{en:"Emerald Gold",tr:"Zümrüt Altın"},a:"#17493c",b:"#e2b659"},
- {id:"plum",n:{en:"Midnight Plum",tr:"Gece Eflatun"},a:"#4a2468",b:"#ff7f5c"},
- {id:"ocean",n:{en:"Ocean Navy",tr:"Okyanus Lacivert"},a:"#1a3f8f",b:"#5ad0e6"},
- {id:"terra",n:{en:"Ivory Terracotta",tr:"Fildişi Terracotta"},a:"#f5eee3",b:"#b8482a"}];
-const M=[
+const SEED=[
  ["starters","Paneer Tikka","Paneer Tikka",320,1,"Tandoor-charred cottage cheese, mint chutney.","Tandırda közlenmiş taze peynir, nane chutney.",["chef","spicy"]],
  ["starters","Hara Bhara Kebab","Hara Bhara Kebap",280,1,"Spinach, peas and potato patties.","Ispanak, bezelye ve patates köftesi.",["light"]],
  ["starters","Crispy Corn","Çıtır Mısır",240,1,"Fried sweet corn, chaat masala, lime.","Kızarmış tatlı mısır, chaat masala, limon.",["jain","light"]],
@@ -580,77 +748,163 @@ const M=[
  ["mocktails", "Rose Falooda Fizz", "Gül Falooda Fizz", 250, 1, "Rose, basil seeds and sparkling soda.", "Gül, fesleğen tohumu ve gazlı soda.", ["sweet"]],
  ["mocktails", "Peach Iced Tea", "Şeftali Buzlu Çay", 190, 1, "Black tea, peach, lemon and ice.", "Siyah çay, şeftali, limon ve buz.", ["light"]],
  ["mocktails", "Tamarind Tonic", "Demirhindi Tonik", 210, 1, "Sweet-sour tamarind with tonic and lime.", "Tatlı-ekşi demirhindi, tonik ve limon.", ["spicy"]]
-].map(r=>({c:r[0],n:{en:r[1],tr:r[2]},p:r[3],v:r[4],d:{en:r[5],tr:r[6]},t:r[7]}));
-M.forEach((m,i)=>m.id=i);
-const HRS={wk:[11,23.5],we:[11,24.5]};
-const hoursFor=d=>(d===0||d===6)?HRS.we:HRS.wk;
-const fmt=h=>{h=h%24;return String(Math.floor(h)).padStart(2,"0")+":"+(h%1?"30":"00")};
-const money=n=>"₹"+n.toLocaleString("en-IN");
+];
+const PALS=[
+ {id:"emerald",n:{en:"Emerald Gold",tr:"Zümrüt Altın"},a:"#17493c",b:"#e2b659"},
+ {id:"plum",n:{en:"Midnight Plum",tr:"Gece Eflatun"},a:"#4a2468",b:"#ff7f5c"},
+ {id:"ocean",n:{en:"Ocean Navy",tr:"Okyanus Lacivert"},a:"#1a3f8f",b:"#5ad0e6"},
+ {id:"terra",n:{en:"Ivory Terracotta",tr:"Fildişi Terracotta"},a:"#f5eee3",b:"#b8482a"}];
+const ICONS=["cloche","pot","wheat","cake","cup","glass","spark"];
+const TAGS=["chef","jain","spicy","light","sweet"];
+const STATUSES=["new","preparing","ready","served","paid","cancelled"];
+const NEXT={new:"preparing",preparing:"ready",ready:"served",served:"paid"};
+const OPEN_ST=["new","preparing","ready","served"];
 
-let lang="en",mood=null,q="",cat="starters",inMenu=false,pal="emerald";
-const cart=new Map();
-const $=s=>document.querySelector(s);
+const DEFAULT_S={name:"Marigold",sub:"Kitchen & Bar",addr:"Your restaurant address goes here, Street, City, PIN",phone:"+91 00000 00000",
+  ig:"https://instagram.com",fb:"https://facebook.com",map:"https://maps.google.com",wifi:"Marigold Guest",wpass:"marigold123",
+  tag:{en:"Fresh from the tandoor",tr:"Tandırdan taze"},tagSub:{en:"Wood-fired Indian kitchen, open all day.",tr:"Odun ateşli Hint mutfağı, gün boyu açık."},
+  gst:5,pal:"emerald",url:"",pin:"1234",autoDemo:true,
+  hours:[0,1,2,3,4,5,6].map(d=>({x:false,o:11,c:(d===0||d===6)?24.5:23.5}))};
+let S,DB;
+
+function seedOrders(db){
+  let sd=11;const rnd=()=>(sd=(sd*16807)%2147483647)/2147483647;
+  const now=Date.now(),d0=new Date();d0.setHours(0,0,0,0);const start=d0.getTime();
+  const pool=[];db.items.forEach(i=>{const w=i.t.includes("chef")?3:i.p<150?2:1;for(let k=0;k<w;k++)pool.push(i)});
+  const raw=[];
+  for(let off=6;off>=1;off--){const n=14+Math.floor(rnd()*19);for(let k=0;k<n;k++)raw.push(start-off*DAY+(11+rnd()*12)*36e5)}
+  const since=(now-start)-9*36e5;
+  if(since>0){const n=Math.min(14,Math.max(2,Math.round(since/36e5*2.2)));for(let k=0;k<n;k++)raw.push(start+9*36e5+rnd()*since)}
+  raw.sort((a,b)=>a-b);
+  const ladder=["new","preparing","ready","served","paid"];
+  raw.forEach(ts=>{
+    const nl=1+Math.floor(rnd()*3.3),lines=[],seen=new Set();
+    for(let k=0;k<nl;k++){const it=pool[Math.floor(rnd()*pool.length)];if(seen.has(it.id))continue;seen.add(it.id);lines.push({id:it.id,c:it.c,n:it.n,p:it.p,q:1+Math.floor(rnd()*2.4)})}
+    const total=lines.reduce((s,l)=>s+l.p*l.q,0),age=(now-ts)/6e4;
+    let status="paid";
+    if(age<45)status=age<5?"new":age<14?"preparing":age<26?"ready":"served";
+    else if(rnd()<.05)status="cancelled";
+    const log=[["new",ts]];
+    if(status==="cancelled")log.push(["cancelled",Math.min(ts+4*6e4,now)]);
+    else{const idx=ladder.indexOf(status);for(let s=1;s<=idx;s++)log.push([ladder[s],ts+Math.min(s*9*6e4,(now-ts)*s/(idx+1))])}
+    db.orders.push({id:"MK-"+(db.seq++),table:String(1+Math.floor(rnd()*12)),lines,total,note:"",pay:["table","upi","card"][Math.floor(rnd()*3)],status,ts,log,sample:true,manual:true});
+  });
+  db.orders.reverse();
+}
+function seedDB(){
+  const cats=SEED_CATS.map(c=>Object.assign(clone(c),{visible:true}));
+  const items=SEED.map((r,i)=>({id:i+1,c:r[0],n:{en:r[1],tr:r[2]},p:r[3],v:r[4],d:{en:r[5],tr:r[6]},t:r[7].slice(),avail:true}));
+  const db={cats,items,orders:[],calls:[],tables:[2,2,4,4,4,4,6,6,2,4,8,4].map((s,i)=>({n:i+1,seats:s})),nextItem:items.length+1,nextCat:1,seq:1001,callSeq:1};
+  seedOrders(db);return db;
+}
+function load(){
+  try{const r=localStorage.getItem(KEY);if(r){const o=JSON.parse(r);if(o&&o.v===2&&o.DB&&o.S){S=Object.assign(clone(DEFAULT_S),o.S);DB=o.DB;return}}}catch(e){}
+  S=clone(DEFAULT_S);DB=seedDB();
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify({v:2,S,DB}))}catch(e){}}
+const byId=id=>DB.items.find(i=>i.id===id);
+const catById=id=>DB.cats.find(c=>c.id===id);
+const orderById=id=>DB.orders.find(o=>o.id===id);
+
+let lang="en",mood=null,q="",cat="",inMenu=false,pal="emerald";
+let CATS=[],M=[];
+function syncData(){CATS=DB.cats.filter(c=>c.visible);M=DB.items}
 const t=()=>T[lang];
+const L=o=>(o&&(o[lang]||o.en))||"";
+const cn=c=>c[lang]||c.en||"";
+const cs=c=>c.sub?(c.sub[lang]||c.sub.en||""):"";
 const ico=(n,cls="")=>`<svg class="i ${cls}"><use href="#i-${n}"/></svg>`;
+const cart=new Map();
 
+/* =====================  CUSTOMER APP  ===================== */
+function applyS(){
+  $$("[data-s]").forEach(e=>{const k=e.dataset.s;let v="";
+    if(k==="ini")v=(S.name||"M").trim().charAt(0).toUpperCase()||"M";
+    else if(k==="tag"||k==="tagSub")v=(S[k]&&(S[k][lang]||S[k].en))||"";
+    else v=S[k]||"";
+    e.textContent=v});
+  $$("[data-sh]").forEach(e=>{e.href=S[e.dataset.sh]||"#"});
+}
 function applyI18n(){
   document.documentElement.lang=lang;
-  document.querySelectorAll("[data-i]").forEach(e=>{e.textContent=t()[e.dataset.i]});
+  $$("[data-i]").forEach(e=>{e.textContent=t()[e.dataset.i]});
   $("#askIn").placeholder=t().ask;$("#table").placeholder=t().table;
   $("#langL").textContent=t().lng;$("#langB2").textContent=t().lng;
-  renderStatus();renderHours();renderCats();renderTabs();renderChips();renderMenu(false);renderPals();updateBar();
+  applyS();renderStatus();renderHours();renderCats();renderTabs();renderChips();renderMenu(false);renderPals();updateBar();
   if(!$("#cartOv").hidden)renderCart();
   if(!$("#itemOv").hidden)renderItem();
   if(inMenu)spy();
+  if(!$("#adm").hidden)admRender();
+}
+function nextOpen(now){
+  const d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+  for(let off=0;off<=7;off++){const day=(d+off)%7,hd=S.hours[day];if(hd.x)continue;if(off===0&&h>=hd.o)continue;return {off,day,o:hd.o}}
+  return null;
+}
+let wasOpen=null;
+function isOpenNow(){if(S.forceClosed)return false;const now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60,hd=S.hours[d],hp=S.hours[(d+6)%7];return (!hd.x&&h>=hd.o&&h<hd.c)||(!hp.x&&h+24<hp.c)}
+function openChanged(){
+  const o=isOpenNow();if(wasOpen===null){wasOpen=o;return}
+  if(o===wasOpen)return;wasOpen=o;
+  renderMenu(false);updateBar();
+  if(!$("#cartOv").hidden)renderCart();
+  if(!$("#itemOv").hidden)renderItem();
 }
 function renderStatus(){
   const now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
-  const [o,c]=hoursFor(d),prev=hoursFor((d+6)%7);
-  const inToday=h>=o&&h<c,inPrev=h+24<prev[1],isOpen=inToday||inPrev;
+  const hd=S.hours[d],hp=S.hours[(d+6)%7];
+  const inToday=!hd.x&&h>=hd.o&&h<hd.c,inPrev=!hp.x&&h+24<hp.c,isOpen=!S.forceClosed&&(inToday||inPrev);
   $("#dayname").textContent=t().days[d];
-  $("#todayh").textContent=`${fmt(o)} - ${fmt(c)}`;
+  $("#todayh").textContent=hd.x?t().closedToday:`${fmt(hd.o)} - ${fmt(hd.c)}`;
   const cls="dot"+(isOpen?"":" closed");$("#dot").className=cls;$("#dot2").className=cls;
-  $("#open").textContent=isOpen?`${t().open} · ${t().until} ${fmt(inToday?c:prev[1])}`:`${t().closed} · ${t().opens} ${fmt(o)}`;
-  $("#open2").textContent=`${isOpen?t().open:t().closed} · ${fmt(o)} - ${fmt(c)}`;
+  let txt;
+  if(isOpen)txt=`${t().open} · ${t().until} ${fmt(inToday?hd.c:hp.c)}`;
+  else{const nx=nextOpen(now);txt=nx?`${t().closed} · ${t().opens} ${nx.off?t().days[nx.day]+" ":""}${fmt(nx.o)}`:t().closed}
+  $("#open").textContent=txt;
+  $("#open2").textContent=(isOpen?t().open:t().closed)+(hd.x?"":` · ${fmt(hd.o)} - ${fmt(hd.c)}`);
+  openChanged();
 }
+setInterval(renderStatus,30000);
 function renderHours(){
   const d=new Date().getDay();
-  $("#hours").innerHTML=[1,2,3,4,5,6,0].map(i=>{const [o,c]=hoursFor(i);
-    return `<div class="row${i===d?" today":""}"><span>${t().days[i]}</span><span>${fmt(o)} - ${fmt(c)}</span></div>`}).join("");
+  $("#hours").innerHTML=[1,2,3,4,5,6,0].map(i=>{const h=S.hours[i];
+    return `<div class="row${i===d?" today":""}"><span>${t().days[i]}</span><span>${h.x?t().closedL:fmt(h.o)+" - "+fmt(h.c)}</span></div>`}).join("");
 }
 function renderCats(){
-  $("#cats").innerHTML=GROUPS.map(g=>{const n=M.filter(i=>g.cats.includes(i.c)).length;
-    return `<button class="cat glass" data-c="${g.first}" type="button">${ico(g.icon)}<span class="ct"><b>${g[lang]}</b><small>${n} ${t().items}</small></span>${ico("chev","chev")}</button>`}).join("");
+  $("#cats").innerHTML=CATS.length?CATS.map(c=>{const n=M.filter(i=>i.c===c.id).length;
+    return `<button class="cat glass" data-c="${esc(c.id)}" type="button">${ico(c.icon)}<span class="ct"><b>${esc(cn(c))}</b><small>${n} ${t().items}</small></span>${ico("chev","chev")}</button>`}).join(""):`<p class="muted">${t().emptyMenu}</p>`;
 }
 
 /* ---- themes ---- */
 function renderPals(){
   const h=PALS.map(p=>`<button class="sw" type="button" data-p="${p.id}" aria-pressed="${pal===p.id}"><i style="background:linear-gradient(135deg,${p.a} 50%,${p.b} 50%)"></i><span>${p.n[lang]}</span></button>`).join("");
-  $("#palList").innerHTML=h;$("#palInfo").innerHTML=h;
+  const a=$("#palList"),b=$("#palInfo"),c=$("#palAdm");if(a)a.innerHTML=h;if(b)b.innerHTML=h;if(c)c.innerHTML=h;
 }
-function setPal(id,save=true){
+function setPal(id,save2=true){
   pal=id;document.documentElement.dataset.pal=id;
-  if(save){try{localStorage.setItem("mk-pal",id)}catch(e){}}
+  if(save2){try{localStorage.setItem("mk-pal",id)}catch(e){}}
   renderPals();readScene();
 }
 
 /* ---- menu ---- */
 let lock=0;
 const searching=()=>!!(q||mood);
+const catIds=()=>CATS.map(c=>c.id);
 function markTab(id,doScroll=true){
   cat=id;
-  document.querySelectorAll("#tabs .tab").forEach(b=>{const on=!searching()&&b.dataset.c===id;b.setAttribute("aria-current",on);
-    if(on&&doScroll)$("#tabs").scrollTo({left:Math.max(0,b.offsetLeft-16),behavior:"smooth"})});
+  $$("#tabs .tab").forEach(b=>{const on=!searching()&&b.dataset.c===id;b.setAttribute("aria-current",on);
+    if(on&&doScroll&&$("#tabs").scrollTo)$("#tabs").scrollTo({left:Math.max(0,b.offsetLeft-16),behavior:"smooth"})});
 }
 function renderTabs(){
-  $("#tabs").innerHTML=CATS.map(c=>`<button class="tab" data-c="${c.id}" type="button" aria-current="${!searching()&&cat===c.id}">${ico(c.icon)}${c[lang]}</button>`).join("");
+  if(!catIds().includes(cat))cat=CATS[0]?CATS[0].id:"";
+  $("#tabs").innerHTML=CATS.map(c=>`<button class="tab" data-c="${esc(c.id)}" type="button" aria-current="${!searching()&&cat===c.id}">${ico(c.icon)}${esc(cn(c))}</button>`).join("");
   if(inMenu)markTab(cat);
 }
 function renderChips(){
   $("#chips").innerHTML=`<span class="lead">${ico("spark")}${t().chefT}</span>`+Object.keys(t().moods).map(k=>`<button class="chip" data-m="${k}" type="button" aria-pressed="${mood===k}">${t().moods[k]}</button>`).join("");
 }
 function matches(it){
-  if(q&&!(it.n.en+" "+it.n.tr+" "+it.d.en).toLowerCase().includes(q))return false;
+  if(q&&!(it.n.en+" "+(it.n.tr||"")+" "+(it.d.en||"")).toLowerCase().includes(q))return false;
   if(!mood)return true;
   if(mood==="pick")return it.t.includes("chef");
   if(mood==="veg")return it.v===1;
@@ -660,32 +914,36 @@ function banner(hr,icon,title,sub,count){
   return `<header class="ban" style="--hr:${hr}deg">${ico(icon,"big")}<div class="bt"><h2>${ico(icon)}${title}</h2>${sub?`<p>${sub}</p>`:""}<span class="cnt">${count} ${t().items}</span></div></header>`;
 }
 function ctlHTML(id){
+  const m=byId(id);
+  if(!m||m.avail===false)return `<span class="tag soldout">${t().soldOut}</span>`;
+  if(!isOpenNow())return "";
   const n=cart.get(id)||0;
-  return n?`<div class="step" role="group" aria-label="${M[id].n[lang]}"><button type="button" data-a="minus" data-id="${id}" aria-label="−">−</button><b>${n}</b><button type="button" data-a="plus" data-id="${id}" aria-label="+">+</button></div>`
+  return n?`<div class="step" role="group" aria-label="${esc(L(m.n))}"><button type="button" data-a="minus" data-id="${id}" aria-label="−">−</button><b>${n}</b><button type="button" data-a="plus" data-id="${id}" aria-label="+">+</button></div>`
           :`<button class="add" type="button" data-a="add" data-id="${id}">${t().add}</button>`;
 }
 function card(i,k){
-  const c=CATS.find(x=>x.id===i.c);
-  return `<article class="it" data-open="${i.id}" tabindex="0" style="--hr:${c.hr}deg;animation-delay:${Math.min(k,8)*45}ms">
+  const c=catById(i.c)||{icon:"spark",hr:0};
+  return `<article class="it${i.avail===false?" out":""}" data-open="${i.id}" tabindex="0" style="--hr:${c.hr}deg;animation-delay:${Math.min(k,8)*45}ms">
     <div class="tile"><i class="vd${i.v?"":" nv"}" role="img" aria-label="${i.v?t().vegL:t().nvL}"></i>${ico(c.icon)}</div>
-    <div class="bd"><div class="top"><h3>${i.n[lang]}</h3><span class="price">${money(i.p)}</span></div><p>${i.d[lang]}</p>
+    <div class="bd"><div class="top"><h3>${esc(L(i.n))}</h3><span class="price">${money(i.p)}</span></div><p>${esc(L(i.d))}</p>
       <div class="meta">${i.t.includes("chef")?`<span class="tag chefT">Chef</span>`:""}${i.t.includes("jain")?`<span class="tag">Jain</span>`:""}${i.t.includes("spicy")?`<span class="tag">${t().moods.spicy}</span>`:""}<span class="tag">${i.v?t().vegL:t().nvL}</span><span class="ctl" data-ctl="${i.id}">${ctlHTML(i.id)}</span></div></div></article>`;
 }
 function secHTML(c){
   const list=M.filter(i=>i.c===c.id);
-  return `<section class="catsec" id="s-${c.id}" data-c="${c.id}">${banner(c.hr,c.icon,c[lang],c.sub[lang],list.length)}<div class="list">${list.map(card).join("")}</div></section>`;
+  return `<section class="catsec" id="s-${esc(c.id)}" data-c="${esc(c.id)}">${banner(c.hr,c.icon,esc(cn(c)),esc(cs(c)),list.length)}<div class="list">${list.length?list.map(card).join(""):`<p class="empty">${t().emptyCat}</p>`}</div></section>`;
 }
 function renderMenu(reset=true){
-  let html="";
-  if(!searching()){
-    html=CATS.map(secHTML).join("");
+  let html=isOpenNow()?"":`<div class="closedbar">${t().orderClosed}</div>`;
+  if(!CATS.length)html+=`<p class="empty">${t().emptyMenu}</p>`;
+  else if(!searching()){
+    html+=CATS.map(secHTML).join("");
   }else{
-    const list=M.filter(matches);
-    const title=mood?t().moods[mood]:`“${q}”`,sub=mood?t().msg[mood]:t().results;
-    html=banner(0,"spark",title,sub,list.length);
+    const vis=new Set(catIds()),list=M.filter(i=>vis.has(i.c)&&matches(i));
+    const title=mood?t().moods[mood]:`“${esc(q)}”`,sub=mood?t().msg[mood]:t().results;
+    html+=banner(0,"spark",title,sub,list.length);
     if(!list.length)html+=`<div class="list"><p class="empty">${t().none}</p></div>`;
     else{let k=0;html+=`<div class="list">`+CATS.map(c=>{const l=list.filter(i=>i.c===c.id);
-      return l.length?`<h3 class="sub">${ico(c.icon)}${c[lang]}</h3>`+l.map(i=>card(i,k++)).join(""):""}).join("")+`</div>`}
+      return l.length?`<h3 class="sub">${ico(c.icon)}${esc(cn(c))}</h3>`+l.map(i=>card(i,k++)).join(""):""}).join("")+`</div>`}
   }
   $("#menu").innerHTML=html;
   if(reset)$("#scroll").scrollTop=0;
@@ -693,21 +951,22 @@ function renderMenu(reset=true){
 function goTo(id,smooth=true){
   const s=document.getElementById("s-"+id);if(!s)return;
   lock=Date.now()+(smooth?900:0);markTab(id);
-  $("#scroll").scrollTo({top:s.offsetTop+$("#menu").offsetTop,behavior:smooth?"smooth":"auto"});
+  const top=s.offsetTop+$("#menu").offsetTop,sc=$("#scroll");
+  if(sc.scrollTo)sc.scrollTo({top,behavior:smooth?"smooth":"auto"});else sc.scrollTop=top;
 }
 function spy(){
   if(!inMenu||searching()||Date.now()<lock)return;
   const sc=$("#scroll"),top=sc.getBoundingClientRect().top;
-  const secs=[...document.querySelectorAll(".catsec")];if(!secs.length)return;
+  const secs=$$(".catsec");if(!secs.length)return;
   let cur=secs[0].dataset.c;
   secs.forEach(s=>{if(s.getBoundingClientRect().top-top<=100)cur=s.dataset.c});
-  if(sc.scrollTop+sc.clientHeight>=sc.scrollHeight-6)cur=secs[secs.length-1].dataset.c;
+  if(sc.scrollTop+sc.clientHeight>=sc.scrollHeight-6&&sc.scrollHeight>sc.clientHeight)cur=secs[secs.length-1].dataset.c;
   if(cur!==cat)markTab(cur);
 }
 function setMenuOpen(on){
   inMenu=on;$("#home").classList.toggle("in-menu",on);document.body.classList.toggle("menu-open",on);
   if(on){renderTabs();renderChips();renderMenu()}
-  updateBar();scrollTo(0,0);
+  updateBar();if(window.scrollTo)try{scrollTo(0,0)}catch(e){}
 }
 function openMenu(c){cat=c||cat;mood=null;q="";$("#askIn").value="";setMenuOpen(true);goTo(cat,false)}
 function parseAsk(v){
@@ -719,103 +978,139 @@ function refresh(){renderTabs();renderChips();renderMenu();if(!searching())goTo(
 function toast(m){const e=$("#toast");e.textContent=m;e.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>e.hidden=true,3500)}
 function toggleLang(){lang=lang==="en"?"tr":"en";applyI18n()}
 
-/* ---- ordering (demo) ---- */
-let orderState="cart",lastOrder=null,pay="table",tableVal="",noteVal="",trStep=0,trTimer=null;
+/* ---- ordering ---- */
+let orderState="cart",lastOrderId=null,pay="table",tableVal="",noteVal="",autoT=null;
 const cartCount=()=>{let n=0;cart.forEach(v=>n+=v);return n};
-const cartTotal=()=>{let s=0;cart.forEach((v,id)=>s+=M[id].p*v);return s};
-function syncCtls(){document.querySelectorAll("[data-ctl]").forEach(e=>{e.innerHTML=ctlHTML(+e.dataset.ctl)})}
+const cartTotal=()=>{let s=0;cart.forEach((v,id)=>{const m=byId(id);if(m)s+=m.p*v});return s};
+function pruneCart(){[...cart.keys()].forEach(id=>{const m=byId(id);if(!m||m.avail===false)cart.delete(id)})}
+function syncCtls(){$$("[data-ctl]").forEach(e=>{e.innerHTML=ctlHTML(+e.dataset.ctl)})}
 function setQty(id,n){
+  const m=byId(id);if(!m||m.avail===false||(!isOpenNow()&&n>0))return;
   if(n<=0)cart.delete(id);else cart.set(id,Math.min(n,20));
-  document.querySelectorAll(`[data-ctl="${id}"]`).forEach(e=>e.innerHTML=ctlHTML(id));
+  $$(`[data-ctl="${id}"]`).forEach(e=>e.innerHTML=ctlHTML(id));
   updateBar();
   if(!$("#cartOv").hidden&&orderState==="cart")renderCart();
 }
 function updateBar(){
-  const n=cartCount(),show=n>0&&inMenu;
+  const n=cartCount(),show=n>0&&inMenu&&isOpenNow();
   $("#cartBar").hidden=!show;$("#home").classList.toggle("has-cart",show);
   $("#cbCount").textContent=n;$("#cbTotal").textContent=money(cartTotal());
 }
+const gstLabel=()=>lang==="tr"?`GST %${S.gst} (dahil)`:`GST ${S.gst}% (included)`;
 function totalsHTML(total){
-  const gst=Math.round(total*5/105);
-  return `<div class="blk"><div class="row"><span>${t().subtotal}</span><span>${money(total-gst)}</span></div><div class="row"><span>${t().gst}</span><span>${money(gst)}</span></div><div class="row total"><span>${t().total}</span><span>${money(total)}</span></div></div>`;
+  const gst=Math.round(total*S.gst/(100+S.gst));
+  return `<div class="blk">${S.gst>0?`<div class="row"><span>${t().subtotal}</span><span>${money(total-gst)}</span></div><div class="row"><span>${gstLabel()}</span><span>${money(gst)}</span></div>`:""}<div class="row total"><span>${t().total}</span><span>${money(total)}</span></div></div>`;
 }
+const STEP={new:0,preparing:1,ready:2,served:3,paid:3};
 function renderCart(){
   const sh=$("#cartSheet");
-  const head=(title)=>`<h3><span>${title}</span><button class="x" id="cartX" type="button" aria-label="Close">${ico("x").replace('class="i "','class="i" style="width:16px;height:16px"')}</button></h3>`;
-  if(orderState==="done"&&lastOrder){
-    sh.innerHTML=head(t().placed)+`<div class="done"><div class="tick">${ico("check")}</div>
-      <p class="muted">${t().orderNo} <b style="color:var(--fg)">#${lastOrder.no}</b> · ${t().tableNo} <b style="color:var(--fg)">${lastOrder.table}</b></p>
-      <ol class="track">${t().steps.map((s,i)=>`<li class="${i<=trStep?"on":""}"><i></i><span>${s}</span></li>`).join("")}</ol></div>
-      ${totalsHTML(lastOrder.total)}<p class="muted">${t().demoOrder}</p><button class="btn big" id="moreBtn" type="button">${t().orderMore}</button>`;
-    return;
+  const head=title=>`<h3><span>${title}</span><button class="x" id="cartX" type="button" aria-label="Close">${ico("x").replace('class="i "','class="i" style="width:16px;height:16px"')}</button></h3>`;
+  if(orderState==="done"){
+    const o=orderById(lastOrderId);
+    if(o){
+      const cancelled=o.status==="cancelled",idx=STEP[o.status];
+      sh.innerHTML=head(cancelled?t().cancelledT:t().placed)+`<div class="done"><div class="tick${cancelled?" bad":""}">${ico(cancelled?"x":"check")}</div>
+        <p class="muted">${t().orderNo} <b style="color:var(--fg)">#${esc(o.id)}</b> · ${t().tableNo} <b style="color:var(--fg)">${esc(o.table)}</b></p>
+        ${cancelled?`<p class="muted">${t().cancelledMsg}</p>`:`<ol class="track">${t().steps.map((s,i)=>`<li class="${i<=idx?"on":""}"><i></i><span>${s}</span></li>`).join("")}</ol>`}</div>
+        ${totalsHTML(o.total)}<p class="muted">${t().demoOrder}</p><button class="btn big" id="moreBtn" type="button">${t().orderMore}</button>`;
+      return;
+    }
   }
   if(!cart.size){sh.innerHTML=head(t().yourOrder)+`<p class="empty">${t().orderEmpty}</p>`;return}
-  const rows=[...cart].map(([id,n])=>{const m=M[id];return `<div class="crow"><div><b>${m.n[lang]}</b><small>${money(m.p)} × ${n}</small></div><div class="rt"><div class="step"><button type="button" data-a="minus" data-id="${id}" aria-label="−">−</button><b>${n}</b><button type="button" data-a="plus" data-id="${id}" aria-label="+">+</button></div><span class="lt">${money(m.p*n)}</span></div></div>`}).join("");
+  const rows=[...cart].map(([id,n])=>{const m=byId(id);if(!m)return "";return `<div class="crow"><div><b>${esc(L(m.n))}</b><small>${money(m.p)} × ${n}</small></div><div class="rt"><div class="step"><button type="button" data-a="minus" data-id="${id}" aria-label="−">−</button><b>${n}</b><button type="button" data-a="plus" data-id="${id}" aria-label="+">+</button></div><span class="lt">${money(m.p*n)}</span></div></div>`}).join("");
   const pays=[["table",t().payTable],["upi",t().payUpi],["card",t().payCard]].map(([k,l])=>`<button class="pay" type="button" data-pay="${k}" aria-pressed="${pay===k}">${l}</button>`).join("");
   sh.innerHTML=head(t().yourOrder)+`<div>${rows}</div>
-    <div class="field"><span class="label">${t().tableNo}</span><input id="cartTable" inputmode="numeric" maxlength="3" value="${tableVal.replace(/"/g,"")}"></div>
-    <div class="field"><span class="label">${t().kitchenNote}</span><input id="cartNote" maxlength="120" value="${noteVal.replace(/"/g,"")}"></div>
+    <div class="field"><span class="label">${t().tableNo}</span><input id="cartTable" inputmode="numeric" maxlength="3" value="${esc(tableVal)}"></div>
+    <div class="field"><span class="label">${t().kitchenNote}</span><input id="cartNote" maxlength="120" value="${esc(noteVal)}"></div>
     <div class="field"><span class="label">${t().payT}</span><div class="pays">${pays}</div></div>
     ${totalsHTML(cartTotal())}
-    <button class="btn big" id="placeBtn" type="button">${t().place} · ${money(cartTotal())}</button><p class="muted">${t().demoOrder}</p>`;
+    ${isOpenNow()?`<button class="btn big" id="placeBtn" type="button">${t().place} · ${money(cartTotal())}</button>`:`<p class="muted" style="text-align:center;font-weight:700;color:var(--bad)">${t().orderClosed}</p>`}<p class="muted">${t().demoOrder}</p>`;
 }
 function openCart(){orderState="cart";if(!tableVal)tableVal=$("#table").value.trim();$("#cartOv").hidden=false;renderCart()}
-function closeCart(){$("#cartOv").hidden=true;clearInterval(trTimer);if(orderState==="done"){orderState="cart"}}
+function closeCart(){$("#cartOv").hidden=true}
+function setStatus(o,s,manual){
+  o.status=s;o.log.push([s,Date.now()]);if(manual)o.manual=true;save();afterOrderChange(o);
+}
+function afterOrderChange(o){
+  if(!$("#adm").hidden)admRender();
+  if(!$("#cartOv").hidden&&orderState==="done"&&o&&o.id===lastOrderId)renderCart();
+}
+function startAuto(){
+  clearInterval(autoT);
+  autoT=setInterval(()=>{const o=orderById(lastOrderId);
+    if(!o||o.manual||!S.autoDemo||!NEXT[o.status]||o.status==="served"){clearInterval(autoT);return}
+    setStatus(o,NEXT[o.status],false)},6000);
+}
 function placeOrder(){
+  if(!isOpenNow()){toast(t().orderClosed);return}
+  pruneCart();
+  if(!cart.size){renderCart();return}
   if(!tableVal.trim()){toast(t().tableNeed);const i=$("#cartTable");if(i)i.focus();return}
-  lastOrder={no:"MK-"+(1000+Math.floor(Math.random()*9000)),table:tableVal.trim(),total:cartTotal()};
-  cart.clear();syncCtls();updateBar();
-  orderState="done";trStep=0;renderCart();
-  clearInterval(trTimer);trTimer=setInterval(()=>{if(trStep<3){trStep++;if(!$("#cartOv").hidden&&orderState==="done")renderCart()}else clearInterval(trTimer)},3500);
+  const lines=[...cart].map(([id,n])=>{const m=byId(id);return {id,c:m.c,n:clone(m.n),p:m.p,q:n}});
+  const now=Date.now();
+  const o={id:"MK-"+(DB.seq++),table:tableVal.trim(),lines,total:cartTotal(),note:noteVal.trim(),pay,status:"new",ts:now,log:[["new",now]],sample:false,manual:false};
+  DB.orders.unshift(o);lastOrderId=o.id;save();
+  cart.clear();noteVal="";syncCtls();updateBar();
+  orderState="done";renderCart();startAuto();
+  if(!$("#adm").hidden)admRender();
 }
 
 /* ---- dish details ---- */
 let dId=0,dq=1;const favs=new Set();
 const NB={starters:[260,14,18,12],mains:[420,22,38,20],breads:[230,6,38,7],desserts:[320,14,44,6],drinks:[120,3,20,3],mocktails:[110,0,26,0]};
 const PB={starters:15,mains:25,breads:10,desserts:8,drinks:5,mocktails:5};
-function nutri(i){const b=NB[i.c],f=.85+((i.id*37)%30)/100,r=(v,s=1)=>Math.round(v*f/s)*s,nv=(!i.v&&i.c==="mains")?1.15:1;
-  return {cal:r(b[0],5),f:r(b[1]),c:r(b[2]),p:Math.round(b[3]*f*nv)}}
-const prepMin=i=>PB[i.c]+(i.id%4)*2;
+function nutri(i){
+  if(i.nut)return {cal:i.nut.cal,f:i.nut.f,c:i.nut.c,p:i.nut.p,real:true};
+  const b=NB[i.c]||[250,10,25,8],f=.85+((i.id*37)%30)/100,r=(v,s=1)=>Math.round(v*f/s)*s,nv=(!i.v&&i.c==="mains")?1.15:1;
+  return {cal:r(b[0],5),f:r(b[1]),c:r(b[2]),p:Math.round(b[3]*f*nv),real:false};
+}
+const prepMin=i=>i.prep!=null?i.prep:(PB[i.c]||12)+(i.id%4)*2;
 const AL=[["gluten",/naan|roti|paratha|kulcha|samosa|brownie|jalebi|muthia|batter/,32],["dairy",/paneer|dahi|yoghurt|yogurt|curd|butter|cream|malai|cheese|ghee|milk|kulfi|lassi|shrikhand|rasmalai|rabri|basundi|phirni|khoya|ice cream|chaas|buttermilk|makhani|lababdar/,205],["nuts",/cashew|kaju|pistachio|almond/,28],["eggs",/brownie|egg/,48],["fish",/fish/,215],["shell",/prawn/,340]];
-const allergens=i=>{const s=(i.n.en+" "+i.d.en).toLowerCase();return AL.filter(a=>a[1].test(s))};
+const allergens=i=>{
+  if(Array.isArray(i.al))return AL.filter(a=>i.al.includes(a[0]));
+  const s=(i.n.en+" "+(i.d.en||"")).toLowerCase();return AL.filter(a=>a[1].test(s));
+};
 function renderItem(){
-  const i=M[dId],c=CATS.find(x=>x.id===i.c),g=GROUPS.find(x=>x.cats.includes(i.c)),nu=nutri(i),al=allergens(i);
-  const e=nu.f*9,cb=nu.c*4,pr=nu.p*4,tot=e+cb+pr||1;
-  const i0=M.filter(x=>x.c===i.c).findIndex(x=>x.id===i.id),pool=M.filter(x=>x.c===i.c),sim=pool.map((_,k)=>pool[(i0+1+k)%pool.length]).filter(x=>x.id!==i.id).slice(0,8);
-  const inCart=cart.has(i.id);
+  const i=byId(dId);if(!i){closeItem();return}
+  const c=catById(i.c)||{icon:"spark",hr:0,en:"",tr:""},nu=nutri(i),al=allergens(i);
+  const e=nu.f*9,cb=nu.c*4,pr=nu.p*4;
+  const pool=M.filter(x=>x.c===i.c&&x.avail!==false),i0=pool.findIndex(x=>x.id===i.id),sim=pool.map((_,k)=>pool[(i0+1+k)%pool.length]).filter(x=>x.id!==i.id).slice(0,8);
+  const out=i.avail===false,inCart=cart.has(i.id);
   $("#itemSheet").innerHTML=`<div class="dbody" id="dBody">
     <div class="dhero" style="--hr:${c.hr}deg">${ico(c.icon,"big")}
       <span class="dveg${i.v?"":" nv"}">${i.v?t().vegL:t().nvL}</span>
       <div class="dtools"><button class="x" id="favB" type="button" aria-label="Favourite" aria-pressed="${favs.has(i.id)}">${ico("heart").replace('class="i "','class="i" style="width:18px;height:18px"')}</button><button class="x" id="itemX" type="button" aria-label="Close">${ico("x").replace('class="i "','class="i" style="width:16px;height:16px"')}</button></div>
       <div class="dplate">${ico(c.icon)}</div></div>
     <div class="dpad">
-      <div class="crumb">${g?g[lang]:""} / <b>${c[lang]}</b></div>
-      <div class="dtitle"><h3>${i.n[lang]}</h3><span class="pchip">${money(i.p)}</span></div>
-      <div class="meta" style="margin:0">${i.t.includes("chef")?`<span class="tag chefT">Chef</span>`:""}${i.t.includes("jain")?`<span class="tag">Jain</span>`:""}${i.t.includes("spicy")?`<span class="tag">${t().moods.spicy}</span>`:""}</div>
-      <p class="ddesc">${i.d[lang]}</p>
+      <div class="crumb">${t().menuC} / <b>${esc(cn(c))}</b></div>
+      <div class="dtitle"><h3>${esc(L(i.n))}</h3><span class="pchip">${money(i.p)}</span></div>
+      <div class="meta" style="margin:0">${i.t.includes("chef")?`<span class="tag chefT">Chef</span>`:""}${i.t.includes("jain")?`<span class="tag">Jain</span>`:""}${i.t.includes("spicy")?`<span class="tag">${t().moods.spicy}</span>`:""}${out?`<span class="tag soldout">${t().soldOut}</span>`:""}</div>
+      <p class="ddesc">${esc(L(i.d))}</p>
       <div class="dsec"><div class="hd"><span class="label">${t().nutT}</span><i>${t().perPortion}</i></div>
         <div class="nut"><div><b>${nu.cal}</b><small>${t().calL}</small></div><div><b>${nu.f}<em>g</em></b><small>${t().fatL}</small></div><div><b>${nu.c}<em>g</em></b><small>${t().carbL}</small></div><div><b>${nu.p}<em>g</em></b><small>${t().protL}</small></div></div>
-        <div class="nbar"><span style="flex:${e};background:var(--accent)"></span><span style="flex:${cb};background:color-mix(in srgb,var(--accent) 45%,var(--surface-2))"></span><span style="flex:${pr};background:var(--veg)"></span></div>
+        <div class="nbar"><span style="flex:${e||1};background:var(--accent)"></span><span style="flex:${cb||1};background:color-mix(in srgb,var(--accent) 45%,var(--surface-2))"></span><span style="flex:${pr||1};background:var(--veg)"></span></div>
         <div class="prep">${ico("clock")}${t().prepL}: ${prepMin(i)} ${t().minL}</div>
-        <p class="muted" style="font-size:11px">${t().sample}</p></div>
+        ${nu.real?"":`<p class="muted" style="font-size:11px">${t().sample}</p>`}</div>
       <div class="dsec"><span class="label">${t().alT}</span>${al.length?`<div class="als">${al.map(a=>`<span class="al"><i style="background:hsl(${a[2]} 70% 55% / .85)"></i>${t()["a_"+a[0]]}</span>`).join("")}</div>`:`<p class="muted">${t().noAl}</p>`}</div>
-      <div class="dsec"><span class="label">${t().simT}</span><div class="sim">${sim.map(x=>{const cc=CATS.find(y=>y.id===x.c);return `<button class="sc" type="button" data-open="${x.id}"><span class="tile" style="--hr:${cc.hr}deg">${ico(cc.icon)}</span><b>${x.n[lang]}</b><span>${money(x.p)}</span></button>`}).join("")}</div></div>
+      ${sim.length?`<div class="dsec"><span class="label">${t().simT}</span><div class="sim">${sim.map(x=>{const cc=catById(x.c)||{icon:"spark",hr:0};return `<button class="sc" type="button" data-open="${x.id}"><span class="tile" style="--hr:${cc.hr}deg">${ico(cc.icon)}</span><b>${esc(L(x.n))}</b><span>${money(x.p)}</span></button>`}).join("")}</div></div>`:""}
     </div></div>
-    <div class="dbar"><div class="step" role="group"><button type="button" data-d="minus" aria-label="−">−</button><b id="dq">${dq}</b><button type="button" data-d="plus" aria-label="+">+</button></div><button class="btn" id="dAdd" type="button">${inCart?t().updOrder:t().addTo} · ${money(i.p*dq)}</button></div>`;
+    ${!isOpenNow()?`<div class="dbar"><p class="muted" style="margin:0;text-align:center;width:100%;font-weight:700">${t().orderClosed}</p></div>`:`<div class="dbar"><div class="step" role="group"><button type="button" data-d="minus" aria-label="−">−</button><b id="dq">${dq}</b><button type="button" data-d="plus" aria-label="+">+</button></div><button class="btn" id="dAdd" type="button"${out?" disabled":""}>${out?t().soldOut:`${inCart?t().updOrder:t().addTo} · ${money(i.p*dq)}`}</button></div>`}`;
 }
 function openItem(id){dId=id;dq=cart.get(id)||1;renderItem();$("#itemOv").hidden=false}
 function closeItem(){$("#itemOv").hidden=true}
-$("#itemOv").addEventListener("click",e=>{
-  if(e.target.id==="itemOv"||e.target.closest("#itemX"))return closeItem();
-  if(e.target.closest("#favB")){favs.has(dId)?favs.delete(dId):favs.add(dId);return $("#favB").setAttribute("aria-pressed",favs.has(dId))}
-  const d=e.target.closest("[data-d]");if(d){dq=Math.max(1,Math.min(20,dq+(d.dataset.d==="plus"?1:-1)));$("#dq").textContent=dq;$("#dAdd").textContent=`${cart.has(dId)?t().updOrder:t().addTo} · ${money(M[dId].p*dq)}`;return}
-  if(e.target.closest("#dAdd")){setQty(dId,dq);closeItem();return toast(`${M[dId].n[lang]} × ${dq}`)}
-  const o=e.target.closest("[data-open]");if(o){openItem(+o.dataset.open);const b=$("#dBody");if(b)b.scrollTop=0}
-});
+
+/* ---- sync after admin edits ---- */
+function syncCustomer(){
+  syncData();pruneCart();
+  if(!catIds().includes(cat))cat=CATS[0]?CATS[0].id:"";
+  applyI18n();
+  if(inMenu){renderTabs();renderMenu(false)}
+  if(!$("#itemOv").hidden){if(byId(dId))renderItem();else closeItem()}
+}
 
 /* ---- events ---- */
 $("#cats").addEventListener("click",e=>{const b=e.target.closest(".cat");if(b)openMenu(b.dataset.c)});
-$("#navMenu").onclick=()=>openMenu(inMenu?cat:"starters");
+$("#navMenu").onclick=()=>openMenu(inMenu?cat:(CATS[0]?CATS[0].id:""));
 $("#scroll").addEventListener("scroll",spy,{passive:true});
 $("#navLang").onclick=toggleLang;
 $("#back").onclick=()=>{mood=null;q="";$("#askIn").value="";setMenuOpen(false)};
@@ -838,32 +1133,49 @@ $("#cartOv").addEventListener("click",e=>{
   const a=e.target.closest("[data-a]");if(a){const id=+a.dataset.id,n=cart.get(id)||0;return setQty(id,a.dataset.a==="minus"?n-1:n+1)}
   const p=e.target.closest("[data-pay]");if(p){pay=p.dataset.pay;return renderCart()}
   if(e.target.closest("#placeBtn"))return placeOrder();
-  if(e.target.closest("#moreBtn"))return closeCart();
+  if(e.target.closest("#moreBtn")){orderState="cart";lastOrderId=null;return closeCart()}
 });
 $("#cartOv").addEventListener("input",e=>{if(e.target.id==="cartTable")tableVal=e.target.value;if(e.target.id==="cartNote")noteVal=e.target.value});
 
+$("#itemOv").addEventListener("click",e=>{
+  if(e.target.id==="itemOv"||e.target.closest("#itemX"))return closeItem();
+  if(e.target.closest("#favB")){favs.has(dId)?favs.delete(dId):favs.add(dId);return $("#favB").setAttribute("aria-pressed",favs.has(dId))}
+  const d=e.target.closest("[data-d]");if(d){dq=Math.max(1,Math.min(20,dq+(d.dataset.d==="plus"?1:-1)));$("#dq").textContent=dq;const m=byId(dId);$("#dAdd").textContent=`${cart.has(dId)?t().updOrder:t().addTo} · ${money(m.p*dq)}`;return}
+  if(e.target.closest("#dAdd")){const m=byId(dId);if(!m||m.avail===false||!isOpenNow())return;setQty(dId,dq);closeItem();return toast(`${L(m.n)} × ${dq}`)}
+  const o=e.target.closest("[data-open]");if(o){openItem(+o.dataset.open);const b=$("#dBody");if(b)b.scrollTop=0}
+});
+
 $("#palB").onclick=()=>{const p=$("#palP");p.hidden=!p.hidden;$("#palB").setAttribute("aria-expanded",!p.hidden)};
 document.addEventListener("click",e=>{
-  const s=e.target.closest(".sw");if(s)setPal(s.dataset.p);
+  const s=e.target.closest(".sw");
+  if(s){setPal(s.dataset.p);if(s.closest("#palAdm")){S.pal=s.dataset.p;save()}}
   if(!e.target.closest("#palP,#palB")){$("#palP").hidden=true;$("#palB").setAttribute("aria-expanded","false")}
 });
 addEventListener("keydown",e=>{if(e.key!=="Escape")return;
-  if(!$("#itemOv").hidden)closeItem();else if(!$("#cartOv").hidden)closeCart();else if(!$("#ov").hidden)closeInfo();else if(!$("#palP").hidden)$("#palB").click();else if(!$("#svcP").hidden)$("#svcB").click()});
+  if(!$("#admModal").hidden)admCloseModal();
+  else if(!$("#adm").hidden)return;
+  else if(!$("#itemOv").hidden)closeItem();else if(!$("#cartOv").hidden)closeCart();else if(!$("#ov").hidden)closeInfo();else if(!$("#palP").hidden)$("#palB").click();else if(!$("#svcP").hidden)$("#svcB").click()});
 
 $("#svcB").onclick=()=>{const p=$("#svcP");p.hidden=!p.hidden;$("#svcB").setAttribute("aria-expanded",!p.hidden);if(!p.hidden)$("#table").focus()};
 $("#svcB2").onclick=()=>$("#svcB").click();
-$("#callBtn").onclick=()=>{const v=$("#table").value.trim();if(!v){toast(t().tableNeed);$("#table").focus();return}toast(t().sent(v));$("#svcP").hidden=true;$("#svcB").setAttribute("aria-expanded","false")};
+$("#callBtn").onclick=()=>{
+  const v=$("#table").value.trim();if(!v){toast(t().tableNeed);$("#table").focus();return}
+  DB.calls.unshift({id:DB.callSeq++,table:v,ts:Date.now(),resolved:false});save();
+  toast(t().sent(v));$("#svcP").hidden=true;$("#svcB").setAttribute("aria-expanded","false");
+  if(!$("#adm").hidden)admRender();
+};
 $("#copy").onclick=async()=>{const pw=$("#pw").textContent;try{await navigator.clipboard.writeText(pw);toast(t().copied)}catch(e){const r=document.createRange();r.selectNodeContents($("#pw"));const s=getSelection();s.removeAllRanges();s.addRange(r)}};
 
-/* ---- scene: drifting bokeh over a mirrored surface, coloured by the active theme ---- */
+/* ---- scene ---- */
 let SC={sky1:"#000",sky2:"#111",floor:"0,0,0",blend:"lighter",orbs:["226,182,89"],light:false};
 function readScene(){
-  const cs=getComputedStyle(document.documentElement),g=n=>cs.getPropertyValue(n).trim();
-  SC={sky1:g("--sky1"),sky2:g("--sky2"),floor:g("--floor"),blend:g("--blend")||"lighter",orbs:[1,2,3,4,5,6].map(i=>g("--o"+i)),light:g("--blend")==="source-over"};
+  const cs2=getComputedStyle(document.documentElement),g=n=>cs2.getPropertyValue(n).trim();
+  SC={sky1:g("--sky1")||"#000",sky2:g("--sky2")||"#111",floor:g("--floor")||"0,0,0",blend:g("--blend")||"lighter",orbs:[1,2,3,4,5,6].map(i=>g("--o"+i)||"226,182,89"),light:g("--blend")==="source-over"};
   if(window.__drawScene)window.__drawScene(performance.now());
 }
 (function(){
-  const cv=$("#scene"),ctx=cv.getContext("2d");
+  const cv=$("#scene"),ctx=cv.getContext&&cv.getContext("2d");
+  if(!ctx)return;
   let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
   const orbs=Array.from({length:46},()=>({x:rnd(),y:.06+rnd()*.5,r:.03+rnd()*.11,ci:Math.floor(rnd()*6),a:.18+rnd()*.5,s:.15+rnd()*.35,p:rnd()*6.28,dx:.01+rnd()*.03,dy:.008+rnd()*.02}));
   let W=0,H=0,dpr=1;
@@ -887,16 +1199,446 @@ function readScene(){
   }
   window.__drawScene=draw;
   size();
-  if(!matchMedia("(prefers-reduced-motion: reduce)").matches){
-    let last=0;const loop=tm=>{if(!inMenu&&tm-last>33){draw(tm);last=tm}requestAnimationFrame(loop)};requestAnimationFrame(loop);
+  if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)){
+    let last=0;const loop=tm=>{if(!inMenu&&$("#adm").hidden&&tm-last>33){draw(tm);last=tm}requestAnimationFrame(loop)};requestAnimationFrame(loop);
   }
-  new ResizeObserver(()=>{size();draw(performance.now())}).observe(cv);
+  if(window.ResizeObserver)new ResizeObserver(()=>{size();draw(performance.now())}).observe(cv);
 })();
 
-try{const p=localStorage.getItem("mk-pal");if(p&&PALS.some(x=>x.id===p))pal=p}catch(e){}
+
+/* =====================  ADMIN  ===================== */
+const adm={page:"dash",authed:false,ordF:"all",ordR:"today",ordQ:"",menuQ:"",menuC:"all",modal:null,form:null};
+try{adm.authed=sessionStorage.getItem("mk-admin")==="1"}catch(e){}
+const NAVS=[["dash","grid"],["orders","receipt"],["menu","book"],["cats","layers"],["tables","qr"],["settings","gear"]];
+const SC_COL={new:"var(--s-new)",preparing:"var(--s-prep)",ready:"var(--s-ready)",served:"var(--s-served)",paid:"var(--s-paid)",cancelled:"var(--s-bad)"};
+const loc=()=>lang==="tr"?"tr-TR":"en-IN";
+const tmS=ts=>new Date(ts).toLocaleTimeString(loc(),{hour:"2-digit",minute:"2-digit",hour12:false});
+const dtS=ts=>new Date(ts).toLocaleDateString(loc(),{day:"numeric",month:"short"});
+function ago(ts){
+  const m=Math.floor((Date.now()-ts)/6e4);if(m<1)return t().now;if(m<60)return `${m} ${t().minAgo}`;
+  const d0=new Date();d0.setHours(0,0,0,0);return ts>=d0.getTime()?tmS(ts):`${dtS(ts)} ${tmS(ts)}`;
+}
+const pill=st=>`<span class="pill" style="--sc:${SC_COL[st]}">${t()["st_"+st]}</span>`;
+const liveO=o=>o.status!=="cancelled";
+const dStart=off=>{const d=new Date();d.setHours(0,0,0,0);return d.getTime()-off*DAY};
+const inDay=(o,off)=>o.ts>=dStart(off)&&o.ts<dStart(off)+DAY;
+const sumT=a=>a.reduce((s,o)=>s+o.total,0);
+const cMoney=n=>n>=1000?"₹"+(n/1000).toFixed(n>=10000?0:1).replace(/\.0$/,"")+"k":"₹"+Math.round(n);
+function niceMax(v){if(v<=0)return 100;const p=Math.pow(10,Math.floor(Math.log10(v))),f=v/p;return (f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*p}
+const slug=s=>String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")||"cat";
+const deltaH=(a,b)=>{if(!(b>0))return `<span class="dl">—</span>`;const p=(a-b)/b*100;return `<span class="dl ${p>=0?"up":"dn"}">${p>=0?"+":"−"}${Math.abs(p).toFixed(0)}%</span>`};
+const aIco=(n,c="")=>`<svg class="i ${c}"><use href="#i-${n}"/></svg>`;
+const bdg=n=>n>0?`<span class="nbdg">${n}</span>`:"";
+
+function stats(){
+  const now=Date.now();
+  const td=DB.orders.filter(o=>inDay(o,0)&&liveO(o)),ys=DB.orders.filter(o=>inDay(o,1)&&liveO(o)&&o.ts<=now-DAY);
+  const rev=sumT(td),n=td.length,avg=n?rev/n:0,yr=sumT(ys),yn=ys.length,ya=yn?yr/yn:0;
+  const occ=new Set(DB.orders.filter(o=>OPEN_ST.includes(o.status)).map(o=>String(o.table)));
+  const occN=DB.tables.filter(x=>occ.has(String(x.n))).length;
+  const week=[6,5,4,3,2,1,0].map(off=>{const a=DB.orders.filter(o=>inDay(o,off)&&liveO(o));return {off,rev:sumT(a),n:a.length}});
+  const wk=DB.orders.filter(o=>o.ts>=dStart(6)&&liveO(o));
+  const dish=new Map(),cats=new Map();
+  wk.forEach(o=>o.lines.forEach(l=>{
+    const d=dish.get(l.id)||{n:l.n,q:0,rev:0};d.q+=l.q;d.rev+=l.p*l.q;dish.set(l.id,d);
+    cats.set(l.c,(cats.get(l.c)||0)+l.p*l.q);
+  }));
+  const top=[...dish.values()].sort((a,b)=>b.q-a.q||b.rev-a.rev).slice(0,5);
+  const share=[...cats.entries()].sort((a,b)=>b[1]-a[1]);
+  return {rev,n,avg,yr,yn,ya,occN,week,top,share,shareTotal:share.reduce((s,x)=>s+x[1],0)};
+}
+const openCalls=()=>DB.calls.filter(c=>!c.resolved);
+function tableState(n){
+  const open=DB.orders.filter(o=>String(o.table)===String(n)&&OPEN_ST.includes(o.status));
+  const call=DB.calls.some(c=>!c.resolved&&String(c.table)===String(n));
+  return {open,call,total:sumT(open)};
+}
+
+/* ---------- pages ---------- */
+function pgDash(){
+  const s=stats(),max=niceMax(Math.max(0,...s.week.map(w=>w.rev))),ticks=[0,1,2,3,4].map(i=>max*i/4);
+  const cnt=st=>DB.orders.filter(o=>o.status===st).length;
+  const calls=openCalls();
+  const cols=["var(--c1)","var(--c2)","var(--c3)","var(--c4)","var(--c5)","var(--c6)"];
+  const topMax=Math.max(1,...s.top.map(x=>x.q));
+  const recent=[...DB.orders].sort((a,b)=>b.ts-a.ts).slice(0,5);
+  const wkLabel=`${t().rev7}: ${s.week.map(w=>new Date(dStart(w.off)).toLocaleDateString(loc(),{weekday:"short"})+" "+money(w.rev)).join(", ")}`;
+  return `<div class="kpis">
+    <div class="kpi"><span class="label">${t().kRev}</span><b>${money(s.rev)}</b>${deltaH(s.rev,s.yr)}<small>${t().vsY}</small></div>
+    <div class="kpi"><span class="label">${t().kOrd}</span><b>${s.n}</b>${deltaH(s.n,s.yn)}<small>${t().vsY}</small></div>
+    <div class="kpi"><span class="label">${t().kAvg}</span><b>${money(s.avg)}</b>${deltaH(s.avg,s.ya)}<small>${t().vsY}</small></div>
+    <div class="kpi"><span class="label">${t().kTab}</span><b>${s.occN}<em>/${DB.tables.length}</em></b><span class="dl">${DB.tables.length?Math.round(s.occN/DB.tables.length*100):0}%</span><small>${t().n_tables}</small></div></div>
+  <div class="dgrid">
+    <section class="cardx span8"><div class="chd"><h3>${t().rev7}</h3></div>
+      <div class="chart" role="img" aria-label="${esc(wkLabel)}"><div class="yax">${ticks.map((v,i)=>`<span style="bottom:${i*25}%">${cMoney(v)}</span>`).join("")}</div>
+        <div class="plot"><div class="grid">${ticks.map((v,i)=>`<i style="bottom:${i*25}%"></i>`).join("")}</div>
+          <div class="bars">${s.week.map(w=>`<div class="col${w.off===0?" today":""}" title="${esc(money(w.rev)+" · "+w.n+" "+t().n_orders.toLowerCase())}"><span class="bv">${w.rev?cMoney(w.rev):""}</span><span class="bar" style="height:${w.rev/max*100}%"></span></div>`).join("")}</div></div>
+        <div></div><div class="xax">${s.week.map(w=>`<span>${new Date(dStart(w.off)).toLocaleDateString(loc(),{weekday:"short"})}</span>`).join("")}</div></div></section>
+    <section class="cardx span4"><div class="chd"><h3>${t().pipe}</h3></div>
+      <div class="queue">${["new","preparing","ready"].map(st=>`<button type="button" class="qb" data-act="goOrders" data-st="${st}" style="--sc:${SC_COL[st]}"><b>${cnt(st)}</b><span>${t()["st_"+st]}</span></button>`).join("")}</div>
+      <div class="chd" style="margin-top:18px"><h3>${t().svcReq}</h3></div>
+      ${calls.length?calls.slice(0,4).map(c=>`<div class="srow">${aIco("bell")}<span><b>${t().tableL} ${esc(c.table)}</b><small>${ago(c.ts)}</small></span><button class="mini" type="button" data-act="resolveCall" data-id="${c.id}">${t().resolve}</button></div>`).join(""):`<p class="muted">${t().noReq}</p>`}</section>
+    <section class="cardx span6"><div class="chd"><h3>${t().top5}</h3></div>
+      ${s.top.length?s.top.map((x,i)=>`<div class="hrow"><span class="hn">${esc(L(x.n))}</span><span class="hbar"><i style="width:${x.q/topMax*100}%;background:${cols[i%6]}"></i></span><b>${x.q} <small>${t().sold}</small></b></div>`).join(""):`<p class="muted">${t().noSales}</p>`}</section>
+    <section class="cardx span6"><div class="chd"><h3>${t().share}</h3></div>
+      ${s.share.length?`<div class="stack" role="img" aria-label="${t().share}">${s.share.map(([c,v],i)=>`<i style="flex:${v};background:${cols[i%6]}" title="${esc(money(v))}"></i>`).join("")}</div>
+      <div class="legend">${s.share.map(([c,v],i)=>{const ct=catById(c);return `<div class="lg"><i style="background:${cols[i%6]}"></i><span>${esc(ct?cn(ct):"—")}</span><b>${money(v)}</b><small>${Math.round(v/s.shareTotal*100)}%</small></div>`}).join("")}</div>`:`<p class="muted">${t().noSales}</p>`}</section>
+    <section class="cardx span12"><div class="chd"><h3>${t().recent}</h3><button class="mini" type="button" data-act="nav" data-p="orders">${t().viewAll}</button></div>
+      ${recent.length?recent.map(orderRow).join(""):`<p class="muted">${t().noOrders}</p>`}
+      ${DB.orders.some(o=>o.sample)?`<p class="muted" style="margin-top:10px">${t().sampleData}</p>`:""}</section>
+  </div>`;
+}
+function orderSummary(o){const n=o.lines.map(l=>`${l.q}× ${L(l.n)}`);return esc(n.slice(0,2).join(", ")+(n.length>2?` +${n.length-2}`:""))}
+function orderRow(o){
+  const nx=NEXT[o.status],cnt=o.lines.reduce((s,l)=>s+l.q,0);
+  return `<div class="orow" data-act="openOrder" data-id="${esc(o.id)}" role="button" tabindex="0">
+    <div class="o1"><b>#${esc(o.id)}</b><span>${t().tableL} ${esc(o.table)} · ${cnt} ${t().items}${o.sample?` · ${t().sampleTag}`:""}</span></div>
+    <div class="o2">${orderSummary(o)}</div>
+    <div class="o3"><b>${money(o.total)}</b><span>${ago(o.ts)}</span></div>
+    <div class="o4">${pill(o.status)}${nx?`<button class="mini go" type="button" data-act="advance" data-id="${esc(o.id)}">${t()["nx_"+o.status]}</button>`:""}</div></div>`;
+}
+function ordersFiltered(withStatus=true){
+  const start=adm.ordR==="today"?dStart(0):adm.ordR==="7"?dStart(6):0,qq=adm.ordQ.trim().toLowerCase();
+  return DB.orders.filter(o=>o.ts>=start&&(!withStatus||adm.ordF==="all"||o.status===adm.ordF)&&(!qq||(o.id+" "+o.table).toLowerCase().includes(qq))).sort((a,b)=>b.ts-a.ts);
+}
+function pgOrders(){
+  const base=ordersFiltered(false),cnt=st=>st==="all"?base.length:base.filter(o=>o.status===st).length;
+  return `<div class="toolbar"><div class="seg" role="group">${[["today","rngToday"],["7","rng7"],["all","rngAll"]].map(([k,l])=>`<button type="button" data-act="ordR" data-v="${k}" aria-pressed="${adm.ordR===k}">${t()[l]}</button>`).join("")}</div>
+    <label class="srch">${aIco("search")}<input id="ordQ" data-in="ordQ" type="search" value="${esc(adm.ordQ)}" placeholder="${t().searchOrd}" autocomplete="off"></label></div>
+   <div class="tabs2">${["all",...STATUSES].map(st=>`<button type="button" data-act="ordF" data-v="${st}" aria-pressed="${adm.ordF===st}">${st==="all"?t().f_all:t()["st_"+st]}<em>${cnt(st)}</em></button>`).join("")}</div>
+   <div class="cardx flush" id="plist">${ordersListH()}</div>`;
+}
+function ordersListH(){const l=ordersFiltered();return l.length?l.slice(0,200).map(orderRow).join(""):`<p class="empty">${t().noMatch}</p>`}
+
+function menuFiltered(){
+  const qq=adm.menuQ.trim().toLowerCase();
+  return DB.items.filter(i=>(adm.menuC==="all"||i.c===adm.menuC)&&(!qq||(i.n.en+" "+(i.n.tr||"")).toLowerCase().includes(qq)));
+}
+function dishRow(i){
+  const c=catById(i.c)||{icon:"spark",hr:0,en:"—"};
+  return `<div class="mrow${i.avail===false?" off":""}">
+    <div class="m1"><span class="tile sm" style="--hr:${c.hr}deg">${aIco(c.icon)}</span><div><b>${esc(i.n.en)}</b><small>${esc(i.n.tr||"")}</small></div></div>
+    <span class="m2">${esc(cn(c))}</span><b class="m3">${money(i.p)}</b>
+    <span class="m4"><i class="vdot${i.v?"":" nv"}"></i>${i.t.includes("chef")?`<span class="tag chefT">Chef</span>`:""}</span>
+    <button class="tg" type="button" data-act="toggleAvail" data-id="${i.id}" aria-pressed="${i.avail!==false}" aria-label="${t().colAvail}"></button>
+    <div class="m5"><button class="ib" type="button" data-act="editDish" data-id="${i.id}" aria-label="${t().edit}">${aIco("edit")}</button><button class="ib dn" type="button" data-act="askDelDish" data-id="${i.id}" aria-label="${t().del}">${aIco("trash")}</button></div></div>`;
+}
+function pgMenu(){
+  return `<div class="toolbar"><label class="srch">${aIco("search")}<input id="menuQ" data-in="menuQ" type="search" value="${esc(adm.menuQ)}" placeholder="${t().search}" autocomplete="off"></label>
+    <select id="menuC" data-in="menuC" aria-label="${t().catL}"><option value="all">${t().allCats}</option>${DB.cats.map(c=>`<option value="${esc(c.id)}"${adm.menuC===c.id?" selected":""}>${esc(cn(c))}</option>`).join("")}</select>
+    <button class="btn" type="button" data-act="addDish">${aIco("plus")} ${t().addDish}</button></div>
+   <div class="cardx flush"><div class="mhead"><span>${t().colDish}</span><span>${t().colCat}</span><span>${t().colPrice}</span><span></span><span>${t().colAvail}</span><span></span></div><div id="plist">${menuListH()}</div></div>`;
+}
+function menuListH(){const l=menuFiltered();return l.length?l.map(dishRow).join(""):`<p class="empty">${t().noMatch}</p>`}
+
+function pgCats(){
+  return `<div class="toolbar"><span class="muted" style="flex:1">${DB.cats.length} ${t().n_cats.toLowerCase()}</span><button class="btn" type="button" data-act="addCat">${aIco("plus")} ${t().addCat}</button></div>
+  <div class="cardx flush">${DB.cats.length?DB.cats.map((c,k)=>{const n=DB.items.filter(i=>i.c===c.id).length;
+    return `<div class="crow2${c.visible?"":" off"}"><span class="tile sm" style="--hr:${c.hr}deg">${aIco(c.icon)}</span>
+      <div class="cn"><b>${esc(c.en)}</b><small>${esc(c.tr||"")} · ${n} ${t().dishes}${c.visible?"":` · ${t().hiddenL}`}</small></div>
+      <button class="tg" type="button" data-act="catVis" data-id="${esc(c.id)}" aria-pressed="${c.visible}" aria-label="${t().visibleL}"></button>
+      <div class="m5"><button class="ib" type="button" data-act="catUp" data-id="${esc(c.id)}" aria-label="${t().moveUp}"${k===0?" disabled":""}>${aIco("up")}</button><button class="ib" type="button" data-act="catDown" data-id="${esc(c.id)}" aria-label="${t().moveDown}"${k===DB.cats.length-1?" disabled":""}>${aIco("down")}</button><button class="ib" type="button" data-act="editCat" data-id="${esc(c.id)}" aria-label="${t().edit}">${aIco("edit")}</button><button class="ib dn" type="button" data-act="askDelCat" data-id="${esc(c.id)}" aria-label="${t().del}">${aIco("trash")}</button></div></div>`}).join(""):`<p class="empty">${t().emptyMenu}</p>`}</div>`;
+}
+
+function pgTables(){
+  const calls=openCalls();
+  return `<div class="toolbar"><span class="muted" style="flex:1">${DB.tables.length} ${t().n_tables.split(" ")[0].toLowerCase()}</span><button class="btn" type="button" data-act="addTable">${aIco("plus")} ${t().addTable}</button></div>
+  ${calls.length?`<section class="cardx" style="margin-bottom:16px"><div class="chd"><h3>${t().svcReq}</h3></div>${calls.map(c=>`<div class="srow">${aIco("bell")}<span><b>${t().callFrom} · ${t().tableL} ${esc(c.table)}</b><small>${ago(c.ts)}</small></span><button class="mini go" type="button" data-act="resolveCall" data-id="${c.id}">${t().resolve}</button></div>`).join("")}</section>`:""}
+  <div class="tgrid">${[...DB.tables].sort((a,b)=>a.n-b.n).map(tb=>{
+    const s=tableState(tb.n),st=s.call?"call":s.open.length?"occ":"free",col=st==="call"?"var(--s-bad)":st==="occ"?"var(--s-new)":"var(--s-ready)";
+    return `<div class="tcard"><div class="th"><b>${tb.n}</b><span class="pill" style="--sc:${col}">${st==="call"?t().stCall:st==="occ"?t().stOcc:t().stFree}</span></div>
+      <small class="muted">${tb.seats} ${t().seats}</small>
+      <div class="tv">${s.open.length?`${s.open.length} ${t().openTotal} · <b>${money(s.total)}</b>`:"&nbsp;"}</div>
+      <div class="tact"><button class="mini" type="button" data-act="qr" data-n="${tb.n}">${aIco("qr")} ${t().qrBtn}</button>${(s.open.length||s.call)?`<button class="mini go" type="button" data-act="closeTable" data-n="${tb.n}">${t().closeTable}</button>`:""}<button class="ib" type="button" data-act="editTable" data-n="${tb.n}" aria-label="${t().edit}">${aIco("edit")}</button><button class="ib dn" type="button" data-act="askDelTable" data-n="${tb.n}" aria-label="${t().delTable}">${aIco("trash")}</button></div></div>`}).join("")}</div>`;
+}
+
+const fl=(label,inner,cls="")=>`<label class="fl ${cls}"><span class="label">${label}</span>${inner}</label>`;
+const sIn=(path,val,extra="")=>`<input data-set="${path}" value="${esc(val)}" ${extra}>`;
+function pgSettings(){
+  const h=S.hours;
+  return `<p class="muted" style="margin:0 0 14px">${t().autosave}</p><div class="sgrid">
+   <section class="cardx"><div class="chd"><h3>${t().sRest}</h3></div><div class="fgrid">
+     ${fl(t().sName,sIn("name",S.name,'maxlength="40"'))}${fl(t().sSub,sIn("sub",S.sub,'maxlength="40"'))}
+     ${fl(t().sAddr,sIn("addr",S.addr,'maxlength="160"'),"full")}${fl(t().sPhone,sIn("phone",S.phone,'maxlength="30"'))}
+     ${fl(t().sMap,sIn("map",S.map,'type="url" placeholder="https://"'))}${fl(t().sIg,sIn("ig",S.ig,'type="url" placeholder="https://"'))}${fl(t().sFb,sIn("fb",S.fb,'type="url" placeholder="https://"'))}</div></section>
+   <section class="cardx"><div class="chd"><h3>${t().sHome}</h3></div><div class="fgrid">
+     ${fl(t().sTagEn,sIn("tag.en",S.tag.en,'maxlength="60"'))}${fl(t().sTagTr,sIn("tag.tr",S.tag.tr,'maxlength="60"'))}
+     ${fl(t().sTagSubEn,sIn("tagSub.en",S.tagSub.en,'maxlength="100"'))}${fl(t().sTagSubTr,sIn("tagSub.tr",S.tagSub.tr,'maxlength="100"'))}</div></section>
+   <section class="cardx"><div class="chd"><h3>${t().sHours}</h3></div>
+     ${[1,2,3,4,5,6,0].map(d=>`<div class="hrow2"><span>${t().days[d]}</span><button class="tg" type="button" data-act="hrOpen" data-d="${d}" aria-pressed="${!h[d].x}" aria-label="${t().days[d]}"></button>
+       ${h[d].x?`<em class="muted">${t().closedL}</em>`:`<input type="time" data-h="${d}.o" value="${fmt(h[d].o)}" aria-label="${t().sOpen}"><span class="muted">–</span><input type="time" data-h="${d}.c" value="${fmt(h[d].c)}" aria-label="${t().sClose}">${h[d].c>24?`<small class="muted">${t().nextDay}</small>`:""}`}</div>`).join("")}</section>
+   <section class="cardx"><div class="chd"><h3>${t().sWifi}</h3></div><div class="fgrid">${fl(t().sWifiName,sIn("wifi",S.wifi,'maxlength="40"'))}${fl(t().sWifiPass,sIn("wpass",S.wpass,'maxlength="40"'))}</div>
+     <div class="chd" style="margin-top:18px"><h3>${t().sBill}</h3></div>${fl(t().sGst,sIn("gst",S.gst,'type="number" min="0" max="28" step="0.5" inputmode="decimal"'))}
+     <div class="chd" style="margin-top:18px"><h3>${t().n_tables}</h3></div>${fl(t().sUrl,sIn("url",S.url,'type="url" placeholder="https://"'))}</section>
+   <section class="cardx"><div class="chd"><h3>${t().sTheme}</h3></div><div class="sws" id="palAdm"></div>
+     <div class="chd" style="margin-top:18px"><h3>${t().sSec}</h3></div>${fl(t().sPin,sIn("pin",S.pin,'inputmode="numeric" maxlength="6" autocomplete="off"'))}</section>
+   <section class="cardx"><div class="chd"><h3>${t().sDemo}</h3></div>
+     <div class="swrow" style="margin-bottom:14px"><div><b>${t().sForce}</b><small class="muted">${t().sForceHint}</small></div><button class="tg" type="button" data-act="forceClosed" aria-pressed="${!!S.forceClosed}" aria-label="${t().sForce}"></button></div>
+     <div class="swrow"><div><b>${t().sAuto}</b><small class="muted">${t().sAutoHint}</small></div><button class="tg" type="button" data-act="autoDemo" aria-pressed="${S.autoDemo}" aria-label="${t().sAuto}"></button></div>
+     <div class="btnrow"><button class="btn2" type="button" data-act="copyData">${aIco("copy")} ${t().sCopy}</button><button class="btn2 danger" type="button" data-act="askReset">${t().sReset}</button></div></section></div>`;
+}
+const PAGES={dash:pgDash,orders:pgOrders,menu:pgMenu,cats:pgCats,tables:pgTables,settings:pgSettings};
+
+/* ---------- shell ---------- */
+function admRender(){
+  if($("#adm").hidden)return;
+  $("#admGate").hidden=adm.authed;$("#admApp").hidden=!adm.authed;
+  if(!adm.authed){$("#pinHint").textContent=S.pin==="1234"?t().pinHint+"1234":"";return}
+  const badge={orders:DB.orders.filter(o=>o.status==="new").length,tables:openCalls().length};
+  $("#admNav").innerHTML=NAVS.map(([k,ic])=>`<button class="navb" type="button" data-act="nav" data-p="${k}" aria-current="${adm.page===k}">${aIco(ic)}<span>${t()["n_"+k]}</span>${bdg(badge[k]||0)}</button>`).join("");
+  $("#admTitle").textContent=t()["n_"+adm.page];
+  $("#admView").innerHTML=PAGES[adm.page]();
+  if(adm.page==="settings")renderPals();
+  if(adm.modal&&(adm.modal.t==="order"||adm.modal.t==="qr"))admModalRender();
+}
+function openAdmin(){
+  $("#adm").hidden=false;document.body.classList.add("adm-open");closeInfo();
+  admRender();if(!adm.authed){const p=$("#pin");if(p){p.value="";p.focus()}}
+}
+function closeAdmin(){
+  $("#adm").hidden=true;document.body.classList.remove("adm-open");admCloseModal();syncCustomer();
+}
+
+/* ---------- modals ---------- */
+function admOpenModal(){$("#admModal").hidden=false}
+function admCloseModal(){adm.modal=null;adm.form=null;$("#admModal").hidden=true;$("#admSheet").innerHTML=""}
+const mhead=(title,sub="")=>`<h3><span>${title}${sub}</span><button class="x" type="button" data-act="closeModal" aria-label="Close">${aIco("x").replace('class="i "','class="i" style="width:16px;height:16px"')}</button></h3>`;
+function confirmModal(msg,yes,act,id){
+  adm.modal={t:"confirm"};
+  $("#admSheet").innerHTML=mhead(msg)+`<div class="btnrow"><button class="btn2" type="button" data-act="closeModal">${t().cancelB}</button><button class="btn danger2" type="button" data-act="${act}" data-id="${esc(id)}">${yes}</button></div>`;
+  admOpenModal();
+}
+function noticeModal(msg){
+  adm.modal={t:"notice"};
+  $("#admSheet").innerHTML=mhead(msg)+`<div class="btnrow"><button class="btn" type="button" data-act="closeModal">OK</button></div>`;
+  admOpenModal();
+}
+function admModalRender(){
+  const m=adm.modal;if(!m)return;
+  if(m.t==="order"){
+    const o=orderById(m.id);if(!o){admCloseModal();return}
+    const gst=Math.round(o.total*S.gst/(100+S.gst)),nx=NEXT[o.status];
+    $("#admSheet").innerHTML=mhead(`#${esc(o.id)} `,pill(o.status))+`
+      <div class="meta2"><span>${t().tableL} <b>${esc(o.table)}</b></span><span>${t().payL} <b>${t()["pay_"+o.pay]||esc(o.pay)}</b></span><span>${dtS(o.ts)} ${tmS(o.ts)}${o.sample?` · ${t().sampleTag}`:""}</span></div>
+      <div>${o.lines.map(l=>`<div class="crow"><div><b>${esc(L(l.n))}</b><small>${money(l.p)} × ${l.q}</small></div><span class="lt">${money(l.p*l.q)}</span></div>`).join("")}</div>
+      ${o.note?`<div class="blk"><span class="label">${t().noteL}</span><p class="muted" style="font-size:14px;color:var(--fg)">${esc(o.note)}</p></div>`:""}
+      ${S.gst>0?`<div class="row"><span>${gstLabel()}</span><span>${money(gst)}</span></div>`:""}<div class="row total"><span>${t().total}</span><span>${money(o.total)}</span></div>
+      <div class="blk"><span class="label">${t().timeline}</span><ol class="tl">${o.log.map(([s,ts])=>`<li><i style="background:${SC_COL[s]}"></i><span>${t()["st_"+s]}</span><small>${tmS(ts)}</small></li>`).join("")}</ol></div>
+      ${m.confirm?`<div class="blk"><p style="margin:0;font-weight:700">${t().confirmCancel}</p><div class="btnrow"><button class="btn2" type="button" data-act="keepOrd">${t().keepOrd}</button><button class="btn danger2" type="button" data-act="doCancel" data-id="${esc(o.id)}">${t().yesCancel}</button></div></div>`
+      :`<div class="blk"><span class="label">${t().setStatus}</span><div class="stp">${STATUSES.map(s=>`<button type="button" class="sbtn" data-act="setSt" data-id="${esc(o.id)}" data-st="${s}" aria-pressed="${o.status===s}" style="--sc:${SC_COL[s]}">${t()["st_"+s]}</button>`).join("")}</div>
+        <div class="btnrow">${nx?`<button class="btn" type="button" data-act="advance" data-id="${esc(o.id)}">${t()["nx_"+o.status]}</button>`:""}${o.status!=="cancelled"&&o.status!=="paid"?`<button class="btn2 danger" type="button" data-act="askCancel">${t().cancelOrd}</button>`:""}</div></div>`}`;
+    admOpenModal();
+  }
+  if(m.t==="qr"){
+    const base=(S.url||"").trim().replace(/#.*$/,"")||(/^https?:/.test(location.href)?location.href.replace(/#.*$/,""):"https://your-restaurant.example/menu");
+    const link=`${base}#table${m.n}`,svg=qrSVG(link);
+    $("#admSheet").innerHTML=mhead(`${t().qrT} · ${t().tableL} ${m.n}`)+`<div class="qrbox">${svg?svg:`<p class="muted">${t().qrFail}</p>`}</div><p class="muted" style="text-align:center">${t().qrNote}</p>
+      <div class="linkbox"><code>${esc(link)}</code></div>${(S.url||"").trim()?"":`<p class="muted">${t().qrSetUrl}</p>`}
+      <div class="btnrow"><button class="btn" type="button" data-act="copyLink" data-link="${esc(link)}">${aIco("copy")} ${t().copyLink}</button></div>`;
+    admOpenModal();
+  }
+}
+function qrSVG(text){try{if(typeof qrcode!=="function")return "";const qr=qrcode(0,"M");qr.addData(text);qr.make();return qr.createSvgTag({cellSize:4,margin:0,scalable:true})}catch(e){return ""}}
+
+function dishModal(id){
+  const it=id?byId(id):null;
+  if(!DB.cats.length){noticeModal(t().reqCat);return}
+  adm.form={id:it?it.id:null,v:it?it.v:1,t:it?it.t.slice():[],avail:it?it.avail!==false:true,alMan:!!(it&&Array.isArray(it.al)),al:it&&Array.isArray(it.al)?it.al.slice():[]};
+  const nut=it&&it.nut?it.nut:{cal:"",f:"",c:"",p:""};
+  const f=adm.form;
+  adm.modal={t:"dish"};
+  $("#admSheet").innerHTML=mhead(it?t().editDish:t().newDish)+`<div class="fgrid">
+    ${fl(t().nameEn,`<input id="fNameEn" maxlength="60" value="${esc(it?it.n.en:"")}">`)}${fl(t().nameTr,`<input id="fNameTr" maxlength="60" value="${esc(it?it.n.tr||"":"")}">`)}
+    ${fl(t().descEn,`<textarea id="fDescEn" rows="2" maxlength="200">${esc(it?it.d.en||"":"")}</textarea>`,"full")}${fl(t().descTr,`<textarea id="fDescTr" rows="2" maxlength="200">${esc(it?it.d.tr||"":"")}</textarea>`,"full")}
+    ${fl(t().priceL,`<input id="fPrice" type="number" min="1" step="1" inputmode="numeric" value="${it?it.p:""}">`)}
+    ${fl(t().catL,`<select id="fCat">${DB.cats.map(c=>`<option value="${esc(c.id)}"${(it?it.c:adm.menuC)===c.id?" selected":""}>${esc(cn(c))}</option>`).join("")}</select>`)}</div>
+   <div class="blk"><span class="label">${t().dietL}</span><div class="chipsr"><button type="button" class="pay" data-act="dietSet" data-v="1" aria-pressed="${f.v===1}"><i class="vdot"></i> ${t().vegL}</button><button type="button" class="pay" data-act="dietSet" data-v="0" aria-pressed="${f.v===0}"><i class="vdot nv"></i> ${t().nvL}</button></div></div>
+   <div class="blk"><span class="label">${t().tagsL}</span><div class="chipsr">${TAGS.map(k=>`<button type="button" class="pay" data-act="tagTog" data-k="${k}" aria-pressed="${f.t.includes(k)}">${t()["tag_"+k]}</button>`).join("")}</div></div>
+   <div class="swrow"><b>${t().availL}</b><button class="tg" type="button" data-act="availTog" aria-pressed="${f.avail}" aria-label="${t().availL}"></button></div>
+   <div class="blk"><span class="label">${t().nutOpt}</span><p class="muted">${t().nutHint}</p><div class="fgrid4">
+     ${fl(t().calL,`<input id="fCal" type="number" min="0" inputmode="numeric" value="${nut.cal}">`)}${fl(t().fatL+" (g)",`<input id="fFat" type="number" min="0" inputmode="numeric" value="${nut.f}">`)}${fl(t().carbL+" (g)",`<input id="fCarb" type="number" min="0" inputmode="numeric" value="${nut.c}">`)}${fl(t().protL+" (g)",`<input id="fProt" type="number" min="0" inputmode="numeric" value="${nut.p}">`)}</div>
+     ${fl(t().prepOpt,`<input id="fPrep" type="number" min="0" inputmode="numeric" value="${it&&it.prep!=null?it.prep:""}">`)}</div>
+   <div class="blk"><div class="swrow"><b>${t().alMode}</b><button class="tg" type="button" data-act="alMan" aria-pressed="${f.alMan}" aria-label="${t().alMode}"></button></div>
+     <p class="muted" id="alAuto"${f.alMan?" hidden":""}>${t().alAuto}</p>
+     <div class="chipsr" id="alChips"${f.alMan?"":" hidden"}>${AL.map(a=>`<button type="button" class="pay" data-act="alTog" data-k="${a[0]}" aria-pressed="${f.al.includes(a[0])}">${t()["a_"+a[0]]}</button>`).join("")}</div></div>
+   <p class="err" id="fErr" hidden></p>
+   <div class="btnrow"><button class="btn2" type="button" data-act="closeModal">${t().cancelB}</button><button class="btn" type="button" data-act="saveDish">${t().save}</button></div>`;
+  admOpenModal();
+}
+function saveDish(){
+  const f=adm.form,err=m=>{const e=$("#fErr");e.textContent=m;e.hidden=false},val=id=>$("#"+id).value.trim();
+  const en=val("fNameEn"),price=Math.round(+$("#fPrice").value);
+  if(!en)return err(t().reqName);
+  if(!(price>0))return err(t().reqPrice);
+  const nv=["fCal","fFat","fCarb","fProt"].map(id=>$("#"+id).value.trim()),filled=nv.filter(x=>x!=="").length;
+  let nut=null;
+  if(filled){if(filled<4||nv.some(x=>!/^\d+$/.test(x)))return err(t().nutNum);nut={cal:+nv[0],f:+nv[1],c:+nv[2],p:+nv[3]}}
+  const prepV=val("fPrep");
+  const base={c:$("#fCat").value,n:{en,tr:val("fNameTr")},d:{en:val("fDescEn"),tr:val("fDescTr")},p:price,v:f.v,t:f.t.slice(),avail:f.avail};
+  let it=f.id?byId(f.id):null;
+  if(it)Object.assign(it,base);else{it=Object.assign({id:DB.nextItem++},base);DB.items.push(it)}
+  if(nut)it.nut=nut;else delete it.nut;
+  if(prepV!==""&&/^\d+$/.test(prepV))it.prep=+prepV;else delete it.prep;
+  if(f.alMan)it.al=f.al.slice();else delete it.al;
+  save();admCloseModal();syncData();admRender();admToast(t().saved);
+}
+function catModal(id){
+  const c=id?catById(id):null;
+  adm.form={id:c?c.id:null,icon:c?c.icon:"cloche",visible:c?c.visible:true,hr:c?c.hr:0};
+  const f=adm.form;adm.modal={t:"cat"};
+  $("#admSheet").innerHTML=mhead(c?t().editCat:t().newCat)+`<div class="fgrid">
+    ${fl(t().nameEn,`<input id="cNameEn" maxlength="40" value="${esc(c?c.en:"")}">`)}${fl(t().nameTr,`<input id="cNameTr" maxlength="40" value="${esc(c?c.tr||"":"")}">`)}
+    ${fl(t().subEn,`<input id="cSubEn" maxlength="90" value="${esc(c&&c.sub?c.sub.en||"":"")}">`)}${fl(t().subTr,`<input id="cSubTr" maxlength="90" value="${esc(c&&c.sub?c.sub.tr||"":"")}">`)}</div>
+   <div class="blk"><span class="label">${t().iconL}</span><div class="chipsr">${ICONS.map(ic=>`<button type="button" class="ibx" data-act="iconPick" data-k="${ic}" aria-pressed="${f.icon===ic}" aria-label="${ic}">${aIco(ic)}</button>`).join("")}</div></div>
+   <div class="blk"><span class="label">${t().shadeL}</span><input id="cHr" data-in="shade" type="range" min="-45" max="45" step="1" value="${f.hr}">
+     <div class="ban prev" id="cPrev" style="--hr:${f.hr}deg">${aIco(f.icon,"big")}<div class="bt"><h2 id="cPrevT">${aIco(f.icon)}<span>${esc(c?c.en:t().newCat)}</span></h2></div></div></div>
+   <div class="swrow"><b>${t().visibleL}</b><button class="tg" type="button" data-act="visTog" aria-pressed="${f.visible}" aria-label="${t().visibleL}"></button></div>
+   <p class="err" id="fErr" hidden></p>
+   <div class="btnrow"><button class="btn2" type="button" data-act="closeModal">${t().cancelB}</button><button class="btn" type="button" data-act="saveCat">${t().save}</button></div>`;
+  admOpenModal();
+}
+function saveCat(){
+  const f=adm.form,en=$("#cNameEn").value.trim();
+  if(!en){const e=$("#fErr");e.textContent=t().reqCatName;e.hidden=false;return}
+  const data={en,tr:$("#cNameTr").value.trim(),sub:{en:$("#cSubEn").value.trim(),tr:$("#cSubTr").value.trim()},icon:f.icon,hr:f.hr,visible:f.visible};
+  if(f.id)Object.assign(catById(f.id),data);
+  else{let id=slug(en),k=2;while(catById(id))id=slug(en)+"-"+k++;DB.cats.push(Object.assign({id},data))}
+  save();admCloseModal();syncData();admRender();admToast(t().saved);
+}
+function tableModal(n){
+  const tb=n!=null?DB.tables.find(x=>x.n===n):null;
+  adm.form={n:tb?tb.n:null};adm.modal={t:"table"};
+  const next=Math.max(0,...DB.tables.map(x=>x.n))+1;
+  $("#admSheet").innerHTML=mhead(tb?t().editTable:t().addTable)+`<div class="fgrid">${fl(t().tableNo,`<input id="tNum" type="number" min="1" max="999" inputmode="numeric" value="${tb?tb.n:next}">`)}${fl(t().seatsL,`<input id="tSeats" type="number" min="1" max="50" inputmode="numeric" value="${tb?tb.seats:4}">`)}</div>
+   <p class="err" id="fErr" hidden></p><div class="btnrow"><button class="btn2" type="button" data-act="closeModal">${t().cancelB}</button><button class="btn" type="button" data-act="saveTable">${t().save}</button></div>`;
+  admOpenModal();
+}
+function saveTable(){
+  const n=Math.round(+$("#tNum").value),seats=Math.max(1,Math.round(+$("#tSeats").value)||1),old=adm.form.n;
+  if(!(n>0)||DB.tables.some(x=>x.n===n&&x.n!==old)){const e=$("#fErr");e.textContent=t().reqTable;e.hidden=false;return}
+  if(old!=null){const tb=DB.tables.find(x=>x.n===old);tb.n=n;tb.seats=seats}else DB.tables.push({n,seats});
+  save();admCloseModal();admRender();admToast(t().saved);
+}
+
+/* ---------- actions ---------- */
+let toastT=null;
+function admToast(m){const e=$("#admToast");e.textContent=m;e.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>e.hidden=true,1800)}
+function copyText(txt,okMsg){
+  const done=()=>admToast(okMsg);
+  try{navigator.clipboard.writeText(txt).then(done,()=>fallback())}catch(e){fallback()}
+  function fallback(){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");done()}catch(e){}ta.remove()}
+}
+function admAct(act,b){
+  const id=b.dataset.id,num=b.dataset.n!=null?+b.dataset.n:null;
+  switch(act){
+    case"nav":adm.page=b.dataset.p;admRender();$("#admView").scrollTop=0;break;
+    case"goOrders":adm.page="orders";adm.ordF=b.dataset.st;adm.ordR="all";adm.ordQ="";admRender();break;
+    case"exit":closeAdmin();break;
+    case"signout":adm.authed=false;try{sessionStorage.removeItem("mk-admin")}catch(e){}admRender();break;
+    case"closeModal":admCloseModal();break;
+    /* orders */
+    case"ordR":adm.ordR=b.dataset.v;admRender();break;
+    case"ordF":adm.ordF=b.dataset.v;admRender();break;
+    case"openOrder":adm.modal={t:"order",id,confirm:false};admModalRender();break;
+    case"advance":{const o=orderById(id);if(o&&NEXT[o.status])setStatus(o,NEXT[o.status],true);break}
+    case"setSt":{const o=orderById(id);if(o&&o.status!==b.dataset.st)setStatus(o,b.dataset.st,true);break}
+    case"askCancel":adm.modal.confirm=true;admModalRender();break;
+    case"keepOrd":adm.modal.confirm=false;admModalRender();break;
+    case"doCancel":{const o=orderById(id);if(o)setStatus(o,"cancelled",true);if(adm.modal)adm.modal.confirm=false;admModalRender();break}
+    /* dishes */
+    case"addDish":dishModal(null);break;
+    case"editDish":dishModal(+id);break;
+    case"saveDish":saveDish();break;
+    case"toggleAvail":{const i=byId(+id);if(i){i.avail=i.avail===false;save();syncCustomer();admRender()}break}
+    case"askDelDish":confirmModal(t().delDishQ,t().delYes,"doDelDish",id);break;
+    case"doDelDish":DB.items=DB.items.filter(i=>i.id!==+id);save();syncData();admCloseModal();syncCustomer();admRender();break;
+    case"dietSet":adm.form.v=+b.dataset.v;$$("#admSheet [data-act=dietSet]").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.v===adm.form.v));break;
+    case"tagTog":{const k=b.dataset.k,a=adm.form.t,i=a.indexOf(k);i<0?a.push(k):a.splice(i,1);b.setAttribute("aria-pressed",i<0);break}
+    case"availTog":adm.form.avail=!adm.form.avail;b.setAttribute("aria-pressed",adm.form.avail);break;
+    case"alMan":adm.form.alMan=!adm.form.alMan;b.setAttribute("aria-pressed",adm.form.alMan);$("#alChips").hidden=!adm.form.alMan;$("#alAuto").hidden=adm.form.alMan;break;
+    case"alTog":{const k=b.dataset.k,a=adm.form.al,i=a.indexOf(k);i<0?a.push(k):a.splice(i,1);b.setAttribute("aria-pressed",i<0);break}
+    /* categories */
+    case"addCat":catModal(null);break;
+    case"editCat":catModal(id);break;
+    case"saveCat":saveCat();break;
+    case"iconPick":adm.form.icon=b.dataset.k;$$("#admSheet [data-act=iconPick]").forEach(x=>x.setAttribute("aria-pressed",x.dataset.k===adm.form.icon));$("#cPrev .big").outerHTML=aIco(adm.form.icon,"big");$("#cPrevT svg").outerHTML=aIco(adm.form.icon);break;
+    case"visTog":adm.form.visible=!adm.form.visible;b.setAttribute("aria-pressed",adm.form.visible);break;
+    case"catVis":{const c=catById(id);if(c){c.visible=!c.visible;save();syncCustomer();admRender()}break}
+    case"catUp":case"catDown":{const k=DB.cats.findIndex(c=>c.id===id),j=act==="catUp"?k-1:k+1;if(k>=0&&j>=0&&j<DB.cats.length){[DB.cats[k],DB.cats[j]]=[DB.cats[j],DB.cats[k]];save();syncCustomer();admRender()}break}
+    case"askDelCat":{const n=DB.items.filter(i=>i.c===id).length;if(n)noticeModal(t().catHasItems);else confirmModal(t().delCatQ,t().delYes,"doDelCat",id);break}
+    case"doDelCat":DB.cats=DB.cats.filter(c=>c.id!==id);save();syncData();admCloseModal();syncCustomer();admRender();break;
+    /* tables */
+    case"addTable":tableModal(null);break;
+    case"editTable":tableModal(num);break;
+    case"saveTable":saveTable();break;
+    case"qr":adm.modal={t:"qr",n:num};admModalRender();break;
+    case"copyLink":copyText(b.dataset.link,t().linkCopied);break;
+    case"resolveCall":{const c=DB.calls.find(x=>x.id===+id);if(c){c.resolved=true;save();admRender()}break}
+    case"closeTable":{
+      DB.orders.filter(o=>String(o.table)===String(num)&&OPEN_ST.includes(o.status)).forEach(o=>{o.status="paid";o.log.push(["paid",Date.now()]);o.manual=true});
+      DB.calls.forEach(c=>{if(String(c.table)===String(num))c.resolved=true});save();afterOrderChange(null);admRender();break}
+    case"askDelTable":{if(tableState(num).open.length)noticeModal(t().tableBusy);else confirmModal(t().tableDelQ,t().delYes,"doDelTable",String(num));break}
+    case"doDelTable":DB.tables=DB.tables.filter(x=>x.n!==+id);save();admCloseModal();admRender();break;
+    /* settings */
+    case"hrOpen":{const h=S.hours[+b.dataset.d];h.x=!h.x;save();renderStatus();renderHours();admRender();break}
+    case"forceClosed":S.forceClosed=!S.forceClosed;save();renderStatus();admRender();break;
+    case"autoDemo":S.autoDemo=!S.autoDemo;save();admRender();break;
+    case"copyData":copyText(JSON.stringify({settings:S,data:DB},null,2),t().sCopied);break;
+    case"askReset":confirmModal(t().sResetQ,t().sResetYes,"doReset","x");break;
+    case"doReset":{S=clone(DEFAULT_S);DB=seedDB();save();cart.clear();adm.menuC="all";adm.menuQ="";adm.ordF="all";admCloseModal();setPal(S.pal);syncCustomer();admRender();break}
+  }
+}
+$("#adm").addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(b)admAct(b.dataset.act,b)});
+$("#adm").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches('.orow[role="button"]'))admAct("openOrder",e.target)});
+$("#admModal").addEventListener("click",e=>{if(e.target.id==="admModal")admCloseModal()});
+
+let savedT=null;
+function setPath(path,v){const p=path.split(".");let o=S;while(p.length>1)o=o[p.shift()];o[p[0]]=v}
+function onField(e){
+  const el=e.target;
+  if(el.dataset.in==="ordQ"){adm.ordQ=el.value;$("#plist").innerHTML=ordersListH();return}
+  if(el.dataset.in==="menuQ"){adm.menuQ=el.value;$("#plist").innerHTML=menuListH();return}
+  if(el.dataset.in==="menuC"){adm.menuC=el.value;$("#plist").innerHTML=menuListH();return}
+  if(el.dataset.in==="shade"){adm.form.hr=+el.value;$("#cPrev").style.setProperty("--hr",el.value+"deg");return}
+  if(el.dataset.h){
+    const [d,k]=el.dataset.h.split("."),h=S.hours[+d];if(!el.value)return;
+    const [hh,mm]=el.value.split(":").map(Number),v=hh+mm/60;
+    if(k==="o"){h.o=v;if(h.c<=h.o)h.c+=24;else if(h.c-24>h.o)h.c-=24}else{h.c=v<=h.o?v+24:v}
+    save();renderStatus();renderHours();clearTimeout(savedT);savedT=setTimeout(()=>admRender(),500);return;
+  }
+  if(el.dataset.set){
+    const path=el.dataset.set;let v=el.value;
+    if(path==="pin"){if(!/^\d{4,6}$/.test(v)){if(e.type==="change"){admToast(t().pinBad);el.value=S.pin}return}}
+    if(path==="gst"){v=Math.max(0,Math.min(28,parseFloat(v)));if(isNaN(v))return}
+    setPath(path,v);save();applyS();renderStatus();
+    clearTimeout(savedT);savedT=setTimeout(()=>admToast(t().saved),600);
+  }
+}
+$("#adm").addEventListener("input",onField);
+$("#adm").addEventListener("change",onField);
+$("#pinForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  if($("#pin").value.trim()===S.pin){adm.authed=true;try{sessionStorage.setItem("mk-admin","1")}catch(x){}$("#pinErr").hidden=true;admRender()}
+  else{$("#pinErr").textContent=t().wrongPin;$("#pinErr").hidden=false;$("#pin").select()}
+});
+$("#admB").onclick=openAdmin;$("#admB2").onclick=openAdmin;
+setInterval(()=>{if(!$("#adm").hidden&&adm.authed&&!adm.modal&&!(document.activeElement&&document.activeElement.matches("input,textarea,select")))admRender()},30000);
+
+/* ---------- start ---------- */
+load();syncData();
+try{const p=localStorage.getItem("mk-pal");pal=(p&&PALS.some(x=>x.id===p))?p:S.pal}catch(e){pal=S.pal}
 document.documentElement.dataset.pal=pal;
+{const m=/^#table(\d{1,3})$/.exec(location.hash||"");if(m){tableVal=m[1];$("#table").value=m[1]}}
+cat=CATS[0]?CATS[0].id:"";
 readScene();
 applyI18n();
+if((location.hash||"")==="#admin")openAdmin();
+window.addEventListener("storage",e=>{
+  if(e.key!==KEY||!e.newValue)return;
+  const before=DB.orders.length;
+  try{const o=JSON.parse(e.newValue);if(o&&o.v===2){S=Object.assign(clone(DEFAULT_S),o.S);DB=o.DB}}catch(x){return}
+  syncCustomer();if(!$("#adm").hidden){admRender();if(DB.orders.length>before)admToast(t().newOrderToast||"New order")}
+});
 </script>
 
 </body></html>
