@@ -326,8 +326,12 @@ a{color:var(--accent)}
   #svcB2{display:inline-flex}
   #back{order:-1;padding:7px 10px}
   #back span{display:none}
-  .mh{gap:8px;padding:10px 12px}
-  .mh .nm{font-size:16px}
+  .mh{gap:6px;padding:10px}
+  .mh .ring{width:36px;height:36px;font-size:19px}
+  .mh .nm{font-size:15px;white-space:nowrap}
+  .mh .nm small{font-size:10px;letter-spacing:0;white-space:nowrap}
+  .mh .hb.m{min-width:34px;padding:6px 7px}
+  #admB2{display:none}
   .mtabs{padding:8px 10px}
   .mchips{padding:10px 10px 2px}
   .toast{bottom:calc(150px + env(safe-area-inset-bottom,0px))}
@@ -342,6 +346,13 @@ a{color:var(--accent)}
   .ban h2{font-size:26px}
 }
 @media (max-width:360px){
+  .mh{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto auto;grid-template-rows:auto auto;gap:6px 5px;padding:8px 10px}
+  .mh .ring{grid-column:2;grid-row:1}
+  .mh .nm{grid-column:3;grid-row:1}
+  #back{grid-column:1;grid-row:1}
+  #langB2{grid-column:4;grid-row:1}
+  #svcB2{grid-column:4;grid-row:2}
+  #infoB2{grid-column:5;grid-row:2}
   .cat{min-height:96px;padding:12px}
   .cat .ct b{font-size:12px}
   .hrs{font-size:18px}
