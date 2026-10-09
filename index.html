@@ -916,10 +916,7 @@ function banner(hr,icon,title,sub,count){
 function ctlHTML(id){
   const m=byId(id);
   if(!m||m.avail===false)return `<span class="tag soldout">${t().soldOut}</span>`;
-  if(!isOpenNow())return "";
-  const n=cart.get(id)||0;
-  return n?`<div class="step" role="group" aria-label="${esc(L(m.n))}"><button type="button" data-a="minus" data-id="${id}" aria-label="−">−</button><b>${n}</b><button type="button" data-a="plus" data-id="${id}" aria-label="+">+</button></div>`
-          :`<button class="add" type="button" data-a="add" data-id="${id}">${t().add}</button>`;
+  return "";
 }
 function card(i,k){
   const c=catById(i.c)||{icon:"spark",hr:0};
@@ -1075,7 +1072,7 @@ function renderItem(){
   const c=catById(i.c)||{icon:"spark",hr:0,en:"",tr:""},nu=nutri(i),al=allergens(i);
   const e=nu.f*9,cb=nu.c*4,pr=nu.p*4;
   const pool=M.filter(x=>x.c===i.c&&x.avail!==false),i0=pool.findIndex(x=>x.id===i.id),sim=pool.map((_,k)=>pool[(i0+1+k)%pool.length]).filter(x=>x.id!==i.id).slice(0,8);
-  const out=i.avail===false,inCart=cart.has(i.id);
+  const out=i.avail===false;
   $("#itemSheet").innerHTML=`<div class="dbody" id="dBody">
     <div class="dhero" style="--hr:${c.hr}deg">${ico(c.icon,"big")}
       <span class="dveg${i.v?"":" nv"}">${i.v?t().vegL:t().nvL}</span>
@@ -1094,7 +1091,7 @@ function renderItem(){
       <div class="dsec"><span class="label">${t().alT}</span>${al.length?`<div class="als">${al.map(a=>`<span class="al"><i style="background:hsl(${a[2]} 70% 55% / .85)"></i>${t()["a_"+a[0]]}</span>`).join("")}</div>`:`<p class="muted">${t().noAl}</p>`}</div>
       ${sim.length?`<div class="dsec"><span class="label">${t().simT}</span><div class="sim">${sim.map(x=>{const cc=catById(x.c)||{icon:"spark",hr:0};return `<button class="sc" type="button" data-open="${x.id}"><span class="tile" style="--hr:${cc.hr}deg">${ico(cc.icon)}</span><b>${esc(L(x.n))}</b><span>${money(x.p)}</span></button>`}).join("")}</div></div>`:""}
     </div></div>
-    ${!isOpenNow()?`<div class="dbar"><p class="muted" style="margin:0;text-align:center;width:100%;font-weight:700">${t().orderClosed}</p></div>`:`<div class="dbar"><div class="step" role="group"><button type="button" data-d="minus" aria-label="−">−</button><b id="dq">${dq}</b><button type="button" data-d="plus" aria-label="+">+</button></div><button class="btn" id="dAdd" type="button"${out?" disabled":""}>${out?t().soldOut:`${inCart?t().updOrder:t().addTo} · ${money(i.p*dq)}`}</button></div>`}`;
+    ${!isOpenNow()?`<div class="dbar"><p class="muted" style="margin:0;text-align:center;width:100%;font-weight:700">${t().orderClosed}</p></div>`:""}`;
 }
 function openItem(id){dId=id;dq=cart.get(id)||1;renderItem();$("#itemOv").hidden=false}
 function closeItem(){$("#itemOv").hidden=true}
@@ -1140,8 +1137,6 @@ $("#cartOv").addEventListener("input",e=>{if(e.target.id==="cartTable")tableVal=
 $("#itemOv").addEventListener("click",e=>{
   if(e.target.id==="itemOv"||e.target.closest("#itemX"))return closeItem();
   if(e.target.closest("#favB")){favs.has(dId)?favs.delete(dId):favs.add(dId);return $("#favB").setAttribute("aria-pressed",favs.has(dId))}
-  const d=e.target.closest("[data-d]");if(d){dq=Math.max(1,Math.min(20,dq+(d.dataset.d==="plus"?1:-1)));$("#dq").textContent=dq;const m=byId(dId);$("#dAdd").textContent=`${cart.has(dId)?t().updOrder:t().addTo} · ${money(m.p*dq)}`;return}
-  if(e.target.closest("#dAdd")){const m=byId(dId);if(!m||m.avail===false||!isOpenNow())return;setQty(dId,dq);closeItem();return toast(`${L(m.n)} × ${dq}`)}
   const o=e.target.closest("[data-open]");if(o){openItem(+o.dataset.open);const b=$("#dBody");if(b)b.scrollTop=0}
 });
 
