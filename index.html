@@ -241,6 +241,59 @@ a{color:var(--accent)}
 .track li.on::before{background:var(--accent)}
 .toast{position:fixed;left:50%;bottom:calc(150px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;z-index:60;max-width:calc(100% - 32px);text-align:center}
 
+/* ===== dish details ===== */
+.it{cursor:pointer;transition:border-color .15s}
+.it:hover{border-color:rgba(var(--acc-rgb),.55)}
+.sheet.dsheet{padding:0;gap:0;display:flex;flex-direction:column;overflow:hidden;max-height:min(780px,calc(100dvh - 32px));width:min(480px,100%)}
+.dbody{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+.dhero{position:relative;isolation:isolate;height:210px;display:grid;place-items:center;overflow:hidden;color:var(--on-g)}
+.dhero::after{content:"";position:absolute;inset:0;z-index:-2;filter:hue-rotate(var(--hr,0deg));background:radial-gradient(circle at 50% 42%,var(--g1),transparent 66%),linear-gradient(160deg,color-mix(in srgb,var(--g1) 30%,var(--g2)),var(--g2))}
+.dhero::before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 1px,transparent 1px 14px)}
+.dhero .big{position:absolute;z-index:-1;width:270px;height:270px;right:-50px;bottom:-70px;stroke-width:.7;color:rgba(255,255,255,.14);transform:rotate(-12deg)}
+.dplate{width:112px;height:112px;margin-top:-10px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);box-shadow:0 0 0 12px rgba(255,255,255,.06),0 0 0 26px rgba(255,255,255,.04)}
+.dplate svg.i{width:52px;height:52px;stroke-width:1.3}
+.dtools{position:absolute;top:12px;right:12px;display:flex;gap:8px}
+.dtools .x{background:rgba(0,0,0,.35);color:#fff;border-color:rgba(255,255,255,.28)}
+.dtools .x[aria-pressed="true"]{color:#ff6b7d}
+.dtools .x[aria-pressed="true"] svg{fill:currentColor}
+.dveg{position:absolute;left:16px;top:16px;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:4px 11px}
+.dveg::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--veg)}
+.dveg.nv::before{background:var(--nonveg)}
+.dpad{position:relative;margin-top:-24px;background:var(--surface);border-radius:24px 24px 0 0;padding:20px 18px 18px;display:grid;gap:16px}
+.crumb{font-size:12px;color:var(--muted)}
+.crumb b{color:var(--accent);font-weight:500}
+.dtitle{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.dtitle h3{font-size:26px;line-height:1.08}
+.pchip{background:var(--accent);color:var(--accent-ink);font-weight:700;border-radius:12px;padding:8px 14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ddesc{margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+.dsec{display:grid;gap:12px;padding-top:16px;border-top:1px solid var(--line)}
+.dsec .hd{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.dsec .hd i{font-style:normal;font-size:12px;color:var(--muted)}
+.nut{display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.nut div{display:grid;gap:2px;padding:2px 4px;border-left:1px solid var(--line)}
+.nut div:first-child{border-left:0}
+.nut b{font-family:var(--display);font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+.nut b em{font-style:normal;font-family:var(--body);font-size:12px;color:var(--muted);margin-left:2px}
+.nut small{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.nbar{display:flex;height:6px;gap:2px;border-radius:3px;overflow:hidden}
+.nbar span{display:block;height:100%}
+.prep{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.prep svg.i{width:16px;height:16px}
+.als{display:flex;flex-wrap:wrap;gap:8px}
+.al{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--glass-2);border-radius:12px;padding:6px 12px 6px 7px;font-size:13px}
+.al i{width:22px;height:22px;border-radius:7px}
+.sim{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.sim::-webkit-scrollbar{display:none}
+.sc{flex:none;width:124px;text-align:left;border:0;background:none;padding:0;display:grid;gap:6px;color:var(--fg)}
+.sc .tile{width:100%;height:88px;border-radius:14px}
+.sc .tile svg.i{width:34px;height:34px}
+.sc b{font-size:13px;line-height:1.25;font-weight:700}
+.sc span{font-size:12px;color:var(--accent);font-weight:700}
+.dbar{display:flex;gap:12px;align-items:center;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line);background:var(--surface)}
+.dbar .step{background:var(--glass-2);color:var(--fg);border:1px solid var(--line)}
+.dbar .step button{width:38px;height:40px}
+.dbar .btn{flex:1}
+
 /* ===== mobile ===== */
 @media (max-width:960px){
   body{padding-bottom:84px}
@@ -281,6 +334,7 @@ a{color:var(--accent)}
 @media (max-width:640px){
   .ov{align-items:end;padding:0}
   .sheet{width:100%;border-radius:22px 22px 0 0;max-height:90dvh;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+  .sheet.dsheet{padding:0;max-height:92dvh;width:100%}
   .ban{padding:22px 16px 32px;min-height:156px}
   .it{grid-template-columns:60px minmax(0,1fr);gap:10px}
   .tile{width:60px;height:60px}
@@ -314,6 +368,8 @@ a{color:var(--accent)}
     <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
     <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.3 0 2-.8 2-1.8 0-.5-.3-1-.6-1.4-.3-.4-.4-.8-.4-1.2 0-1 .8-1.6 1.8-1.6H17a4 4 0 0 0 4-4c0-4-4-8-9-8z"/><path d="M7.5 11v.01M10 7.5v.01M14.5 7.5v.01"/></symbol>
   </defs>
@@ -414,11 +470,14 @@ a{color:var(--accent)}
 <div class="ov" id="cartOv" hidden>
   <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="cartH" id="cartSheet"></div>
 </div>
+<div class="ov" id="itemOv" hidden>
+  <div class="sheet dsheet" role="dialog" aria-modal="true" aria-label="Dish details" id="itemSheet"></div>
+</div>
 <div class="toast" id="toast" hidden></div>
 
 <script>
 const T={
- en:{sub:"Kitchen & Bar",add:"Add",viewOrder:"View order",yourOrder:"Your order",orderEmpty:"Your order is empty. Add a few dishes from the menu.",tableNo:"Table number",kitchenNote:"Note for the kitchen (optional)",payT:"Payment",payTable:"Pay at table",payUpi:"UPI",payCard:"Card",subtotal:"Subtotal",gst:"GST 5% (included)",total:"Total",place:"Place order",placed:"Order placed",orderNo:"Order",steps:["Received","Preparing","Ready","Served"],demoOrder:"Demo only. No payment is taken and nothing is sent to a kitchen.",orderMore:"Order more",themeT:"Colour theme",demoThemes:"Demo themes",back:"Back",results:"Search results",vegL:"Vegetarian",nvL:"Non-veg",tag:"Fresh from the tandoor",tagSub:"Wood-fired Indian kitchen, open all day.",today:"Today",addrL:"Address",
+ en:{sub:"Kitchen & Bar",addTo:"Add to order",updOrder:"Update order",nutT:"Nutritional values",perPortion:"per portion",calL:"Calories",fatL:"Fat",carbL:"Carbs",protL:"Protein",prepL:"Preparation time",minL:"min",alT:"Allergens",noAl:"No common allergens",simT:"Similar dishes",sample:"Sample values for this demo. Replace them with your own.",a_gluten:"Gluten",a_dairy:"Milk & dairy",a_nuts:"Tree nuts",a_eggs:"Eggs",a_fish:"Fish",a_shell:"Shellfish",add:"Add",viewOrder:"View order",yourOrder:"Your order",orderEmpty:"Your order is empty. Add a few dishes from the menu.",tableNo:"Table number",kitchenNote:"Note for the kitchen (optional)",payT:"Payment",payTable:"Pay at table",payUpi:"UPI",payCard:"Card",subtotal:"Subtotal",gst:"GST 5% (included)",total:"Total",place:"Place order",placed:"Order placed",orderNo:"Order",steps:["Received","Preparing","Ready","Served"],demoOrder:"Demo only. No payment is taken and nothing is sent to a kitchen.",orderMore:"Order more",themeT:"Colour theme",demoThemes:"Demo themes",back:"Back",results:"Search results",vegL:"Vegetarian",nvL:"Non-veg",tag:"Fresh from the tandoor",tagSub:"Wood-fired Indian kitchen, open all day.",today:"Today",addrL:"Address",
   addr:"Your restaurant address goes here, Street, City, PIN",map:"Open in Maps",info:"Info",menuL:"MENU",
   ask:"Search or ask Marigold…",search:"Search dishes",chefT:"Ask the chef",chefDef:"Not sure what to order? Pick a mood.",hoursT:"Opening hours",
   net:"Network",pass:"Password",copy:"Copy",copied:"Copied",noteT:"Good to know",
@@ -430,7 +489,7 @@ const T={
   moods:{pick:"Today's pick",jain:"Jain",veg:"Vegetarian",light:"Light",sweet:"Something sweet",spicy:"Spicy"},
   msg:{pick:"Our chef suggests these today.",jain:"No onion, garlic or root vegetables in these.",veg:"All vegetarian dishes.",light:"Lighter plates and drinks.",sweet:"Save room for dessert.",spicy:"These bring the heat."},
   kw:{pick:["pick","chef","recommend","best","special"],jain:["jain"],veg:["veg","vegetarian"],light:["light","healthy"],sweet:["sweet","dessert"],spicy:["spicy","hot"]},lng:"TR"},
- tr:{sub:"Kitchen & Bar",add:"Ekle",viewOrder:"Siparişi gör",yourOrder:"Siparişiniz",orderEmpty:"Siparişiniz boş. Menüden birkaç yemek ekleyin.",tableNo:"Masa numarası",kitchenNote:"Mutfağa not (isteğe bağlı)",payT:"Ödeme",payTable:"Masada öde",payUpi:"UPI",payCard:"Kart",subtotal:"Ara toplam",gst:"GST %5 (dahil)",total:"Toplam",place:"Siparişi ver",placed:"Sipariş alındı",orderNo:"Sipariş",steps:["Alındı","Hazırlanıyor","Hazır","Servis edildi"],demoOrder:"Yalnızca demo. Ödeme alınmaz ve mutfağa hiçbir şey gönderilmez.",orderMore:"Daha fazla sipariş ver",themeT:"Renk teması",demoThemes:"Demo temalar",back:"Geri",results:"Arama sonuçları",vegL:"Vejetaryen",nvL:"Etli",tag:"Tandırdan taze",tagSub:"Odun ateşli Hint mutfağı, gün boyu açık.",today:"Bugün",addrL:"Adres",
+ tr:{sub:"Kitchen & Bar",addTo:"Siparişe ekle",updOrder:"Siparişi güncelle",nutT:"Besin değerleri",perPortion:"porsiyon başına",calL:"Kalori",fatL:"Yağ",carbL:"Karb.",protL:"Protein",prepL:"Hazırlık süresi",minL:"dk",alT:"Alerjenler",noAl:"Yaygın alerjen yok",simT:"Benzer yemekler",sample:"Bu demo için örnek değerler. Kendi verilerinizle değiştirin.",a_gluten:"Gluten",a_dairy:"Süt ve süt ürünleri",a_nuts:"Kuruyemiş",a_eggs:"Yumurta",a_fish:"Balık",a_shell:"Kabuklu deniz ürünü",add:"Ekle",viewOrder:"Siparişi gör",yourOrder:"Siparişiniz",orderEmpty:"Siparişiniz boş. Menüden birkaç yemek ekleyin.",tableNo:"Masa numarası",kitchenNote:"Mutfağa not (isteğe bağlı)",payT:"Ödeme",payTable:"Masada öde",payUpi:"UPI",payCard:"Kart",subtotal:"Ara toplam",gst:"GST %5 (dahil)",total:"Toplam",place:"Siparişi ver",placed:"Sipariş alındı",orderNo:"Sipariş",steps:["Alındı","Hazırlanıyor","Hazır","Servis edildi"],demoOrder:"Yalnızca demo. Ödeme alınmaz ve mutfağa hiçbir şey gönderilmez.",orderMore:"Daha fazla sipariş ver",themeT:"Renk teması",demoThemes:"Demo temalar",back:"Geri",results:"Arama sonuçları",vegL:"Vejetaryen",nvL:"Etli",tag:"Tandırdan taze",tagSub:"Odun ateşli Hint mutfağı, gün boyu açık.",today:"Bugün",addrL:"Adres",
   addr:"Restoran adresiniz buraya, Sokak, Şehir, Posta Kodu",map:"Haritada Aç",info:"Bilgi",menuL:"MENÜ",
   ask:"Ara ya da Marigold'a sor…",search:"Yemek ara",chefT:"Şefe sor",chefDef:"Ne sipariş edeceğine karar veremedin mi? Bir ruh hali seç.",hoursT:"Çalışma saatleri",
   net:"Ağ adı",pass:"Şifre",copy:"Kopyala",copied:"Kopyalandı",noteT:"Bilgilendirme",
@@ -541,6 +600,7 @@ function applyI18n(){
   $("#langL").textContent=t().lng;$("#langB2").textContent=t().lng;
   renderStatus();renderHours();renderCats();renderTabs();renderChips();renderMenu(false);renderPals();updateBar();
   if(!$("#cartOv").hidden)renderCart();
+  if(!$("#itemOv").hidden)renderItem();
   if(inMenu)spy();
 }
 function renderStatus(){
@@ -606,7 +666,7 @@ function ctlHTML(id){
 }
 function card(i,k){
   const c=CATS.find(x=>x.id===i.c);
-  return `<article class="it" style="--hr:${c.hr}deg;animation-delay:${Math.min(k,8)*45}ms">
+  return `<article class="it" data-open="${i.id}" tabindex="0" style="--hr:${c.hr}deg;animation-delay:${Math.min(k,8)*45}ms">
     <div class="tile"><i class="vd${i.v?"":" nv"}" role="img" aria-label="${i.v?t().vegL:t().nvL}"></i>${ico(c.icon)}</div>
     <div class="bd"><div class="top"><h3>${i.n[lang]}</h3><span class="price">${money(i.p)}</span></div><p>${i.d[lang]}</p>
       <div class="meta">${i.t.includes("chef")?`<span class="tag chefT">Chef</span>`:""}${i.t.includes("jain")?`<span class="tag">Jain</span>`:""}${i.t.includes("spicy")?`<span class="tag">${t().moods.spicy}</span>`:""}<span class="tag">${i.v?t().vegL:t().nvL}</span><span class="ctl" data-ctl="${i.id}">${ctlHTML(i.id)}</span></div></div></article>`;
@@ -709,6 +769,50 @@ function placeOrder(){
   clearInterval(trTimer);trTimer=setInterval(()=>{if(trStep<3){trStep++;if(!$("#cartOv").hidden&&orderState==="done")renderCart()}else clearInterval(trTimer)},3500);
 }
 
+/* ---- dish details ---- */
+let dId=0,dq=1;const favs=new Set();
+const NB={starters:[260,14,18,12],mains:[420,22,38,20],breads:[230,6,38,7],desserts:[320,14,44,6],drinks:[120,3,20,3],mocktails:[110,0,26,0]};
+const PB={starters:15,mains:25,breads:10,desserts:8,drinks:5,mocktails:5};
+function nutri(i){const b=NB[i.c],f=.85+((i.id*37)%30)/100,r=(v,s=1)=>Math.round(v*f/s)*s,nv=(!i.v&&i.c==="mains")?1.15:1;
+  return {cal:r(b[0],5),f:r(b[1]),c:r(b[2]),p:Math.round(b[3]*f*nv)}}
+const prepMin=i=>PB[i.c]+(i.id%4)*2;
+const AL=[["gluten",/naan|roti|paratha|kulcha|samosa|brownie|jalebi|muthia|batter/,32],["dairy",/paneer|dahi|yoghurt|yogurt|curd|butter|cream|malai|cheese|ghee|milk|kulfi|lassi|shrikhand|rasmalai|rabri|basundi|phirni|khoya|ice cream|chaas|buttermilk|makhani|lababdar/,205],["nuts",/cashew|kaju|pistachio|almond/,28],["eggs",/brownie|egg/,48],["fish",/fish/,215],["shell",/prawn/,340]];
+const allergens=i=>{const s=(i.n.en+" "+i.d.en).toLowerCase();return AL.filter(a=>a[1].test(s))};
+function renderItem(){
+  const i=M[dId],c=CATS.find(x=>x.id===i.c),g=GROUPS.find(x=>x.cats.includes(i.c)),nu=nutri(i),al=allergens(i);
+  const e=nu.f*9,cb=nu.c*4,pr=nu.p*4,tot=e+cb+pr||1;
+  const i0=M.filter(x=>x.c===i.c).findIndex(x=>x.id===i.id),pool=M.filter(x=>x.c===i.c),sim=pool.map((_,k)=>pool[(i0+1+k)%pool.length]).filter(x=>x.id!==i.id).slice(0,8);
+  const inCart=cart.has(i.id);
+  $("#itemSheet").innerHTML=`<div class="dbody" id="dBody">
+    <div class="dhero" style="--hr:${c.hr}deg">${ico(c.icon,"big")}
+      <span class="dveg${i.v?"":" nv"}">${i.v?t().vegL:t().nvL}</span>
+      <div class="dtools"><button class="x" id="favB" type="button" aria-label="Favourite" aria-pressed="${favs.has(i.id)}">${ico("heart").replace('class="i "','class="i" style="width:18px;height:18px"')}</button><button class="x" id="itemX" type="button" aria-label="Close">${ico("x").replace('class="i "','class="i" style="width:16px;height:16px"')}</button></div>
+      <div class="dplate">${ico(c.icon)}</div></div>
+    <div class="dpad">
+      <div class="crumb">${g?g[lang]:""} / <b>${c[lang]}</b></div>
+      <div class="dtitle"><h3>${i.n[lang]}</h3><span class="pchip">${money(i.p)}</span></div>
+      <div class="meta" style="margin:0">${i.t.includes("chef")?`<span class="tag chefT">Chef</span>`:""}${i.t.includes("jain")?`<span class="tag">Jain</span>`:""}${i.t.includes("spicy")?`<span class="tag">${t().moods.spicy}</span>`:""}</div>
+      <p class="ddesc">${i.d[lang]}</p>
+      <div class="dsec"><div class="hd"><span class="label">${t().nutT}</span><i>${t().perPortion}</i></div>
+        <div class="nut"><div><b>${nu.cal}</b><small>${t().calL}</small></div><div><b>${nu.f}<em>g</em></b><small>${t().fatL}</small></div><div><b>${nu.c}<em>g</em></b><small>${t().carbL}</small></div><div><b>${nu.p}<em>g</em></b><small>${t().protL}</small></div></div>
+        <div class="nbar"><span style="flex:${e};background:var(--accent)"></span><span style="flex:${cb};background:color-mix(in srgb,var(--accent) 45%,var(--surface-2))"></span><span style="flex:${pr};background:var(--veg)"></span></div>
+        <div class="prep">${ico("clock")}${t().prepL}: ${prepMin(i)} ${t().minL}</div>
+        <p class="muted" style="font-size:11px">${t().sample}</p></div>
+      <div class="dsec"><span class="label">${t().alT}</span>${al.length?`<div class="als">${al.map(a=>`<span class="al"><i style="background:hsl(${a[2]} 70% 55% / .85)"></i>${t()["a_"+a[0]]}</span>`).join("")}</div>`:`<p class="muted">${t().noAl}</p>`}</div>
+      <div class="dsec"><span class="label">${t().simT}</span><div class="sim">${sim.map(x=>{const cc=CATS.find(y=>y.id===x.c);return `<button class="sc" type="button" data-open="${x.id}"><span class="tile" style="--hr:${cc.hr}deg">${ico(cc.icon)}</span><b>${x.n[lang]}</b><span>${money(x.p)}</span></button>`}).join("")}</div></div>
+    </div></div>
+    <div class="dbar"><div class="step" role="group"><button type="button" data-d="minus" aria-label="−">−</button><b id="dq">${dq}</b><button type="button" data-d="plus" aria-label="+">+</button></div><button class="btn" id="dAdd" type="button">${inCart?t().updOrder:t().addTo} · ${money(i.p*dq)}</button></div>`;
+}
+function openItem(id){dId=id;dq=cart.get(id)||1;renderItem();$("#itemOv").hidden=false}
+function closeItem(){$("#itemOv").hidden=true}
+$("#itemOv").addEventListener("click",e=>{
+  if(e.target.id==="itemOv"||e.target.closest("#itemX"))return closeItem();
+  if(e.target.closest("#favB")){favs.has(dId)?favs.delete(dId):favs.add(dId);return $("#favB").setAttribute("aria-pressed",favs.has(dId))}
+  const d=e.target.closest("[data-d]");if(d){dq=Math.max(1,Math.min(20,dq+(d.dataset.d==="plus"?1:-1)));$("#dq").textContent=dq;$("#dAdd").textContent=`${cart.has(dId)?t().updOrder:t().addTo} · ${money(M[dId].p*dq)}`;return}
+  if(e.target.closest("#dAdd")){setQty(dId,dq);closeItem();return toast(`${M[dId].n[lang]} × ${dq}`)}
+  const o=e.target.closest("[data-open]");if(o){openItem(+o.dataset.open);const b=$("#dBody");if(b)b.scrollTop=0}
+});
+
 /* ---- events ---- */
 $("#cats").addEventListener("click",e=>{const b=e.target.closest(".cat");if(b)openMenu(b.dataset.c)});
 $("#navMenu").onclick=()=>openMenu(inMenu?cat:"starters");
@@ -718,7 +822,8 @@ $("#back").onclick=()=>{mood=null;q="";$("#askIn").value="";setMenuOpen(false)};
 $("#tabs").addEventListener("click",e=>{const b=e.target.closest(".tab");if(!b)return;
   if(searching()){mood=null;q="";$("#askIn").value="";renderTabs();renderChips();renderMenu();goTo(b.dataset.c,false)}else goTo(b.dataset.c,true)});
 $("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;mood=mood===b.dataset.m?null:b.dataset.m;q="";$("#askIn").value="";refresh()});
-$("#menu").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b)return;const id=+b.dataset.id,n=cart.get(id)||0;setQty(id,b.dataset.a==="minus"?n-1:n+1)});
+$("#menu").addEventListener("click",e=>{const b=e.target.closest("[data-a]");if(!b){const c=e.target.closest("[data-open]");if(c)openItem(+c.dataset.open);return}const id=+b.dataset.id,n=cart.get(id)||0;setQty(id,b.dataset.a==="minus"?n-1:n+1)});
+$("#menu").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches("[data-open]"))openItem(+e.target.dataset.open)});
 $("#askForm").addEventListener("submit",e=>{e.preventDefault();parseAsk($("#askIn").value);if(inMenu)refresh();else setMenuOpen(true)});
 $("#askIn").addEventListener("input",e=>{if(inMenu){parseAsk(e.target.value);refresh()}});
 
@@ -743,7 +848,7 @@ document.addEventListener("click",e=>{
   if(!e.target.closest("#palP,#palB")){$("#palP").hidden=true;$("#palB").setAttribute("aria-expanded","false")}
 });
 addEventListener("keydown",e=>{if(e.key!=="Escape")return;
-  if(!$("#cartOv").hidden)closeCart();else if(!$("#ov").hidden)closeInfo();else if(!$("#palP").hidden)$("#palB").click();else if(!$("#svcP").hidden)$("#svcB").click()});
+  if(!$("#itemOv").hidden)closeItem();else if(!$("#cartOv").hidden)closeCart();else if(!$("#ov").hidden)closeInfo();else if(!$("#palP").hidden)$("#palB").click();else if(!$("#svcP").hidden)$("#svcB").click()});
 
 $("#svcB").onclick=()=>{const p=$("#svcP");p.hidden=!p.hidden;$("#svcB").setAttribute("aria-expanded",!p.hidden);if(!p.hidden)$("#table").focus()};
 $("#svcB2").onclick=()=>$("#svcB").click();
